@@ -3,7 +3,7 @@
 set -ex
 
 # make my life easy
-sudo apt-get install -y ranger bash-completion vim
+sudo apt-get install -y ranger bash-completion vim build-essential
 
 # install ubuntu deps
 sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev libpcap-dev  libsctp-dev gcc
@@ -11,8 +11,8 @@ sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev li
 # install kernel headers
 sudo apt-get install -y linux-headers-$(uname -r)
 
-# install clang 5.0
-sudo apt-get install -y clang-5.0
+# install clang 5.0 and cmake
+sudo apt-get install -y clang-5.0 cmake
 
 # setup rust
 curl https://sh.rustup.rs -sSf | sh  # Install rustup
