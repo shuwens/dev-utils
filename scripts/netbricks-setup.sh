@@ -21,7 +21,7 @@ sudo apt-get install -y musl-tools
 # setup rust
 curl https://sh.rustup.rs -sSf | sh  # Install rustup
 source $HOME/.cargo/env
-rustup install nightly
+rustup install nightly-2019-01-03
 rustup default nightly
 
 # git repo
