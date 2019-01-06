@@ -14,6 +14,10 @@ sudo apt-get install -y linux-headers-$(uname -r)
 # install clang 5.0 and cmake
 sudo apt-get install -y clang-5.0 cmake
 
+# musl
+sudo apt-get install -y musl-tools
+
+
 # setup rust
 curl https://sh.rustup.rs -sSf | sh  # Install rustup
 source $HOME/.cargo/env
