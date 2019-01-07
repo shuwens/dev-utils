@@ -3,7 +3,7 @@
 set -ex
 
 # make my life easy
-sudo apt-get install -y ranger bash-completion vim build-essential
+sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag
 
 # install ubuntu deps
 sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev libpcap-dev  libsctp-dev gcc
