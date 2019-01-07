@@ -192,6 +192,11 @@ alias gs='git status -s'
 alias ca='git commit -a -m'
 alias lazy="git add -A && git commit -m 'Update some files' && git push "
 
+# use nvim if I set it up
+if type nvim >/dev/null 2>/dev/null; then
+	alias vi=nvim
+	alias vim=nvim
+fi
 
 # Type - to move up to top parent dir which is a repository
 function - {
