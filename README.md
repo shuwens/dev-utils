@@ -6,7 +6,6 @@ wget -O ~/.bashrc https://raw.githubusercontent.com/jethrosun/dev-utils/master/b
 ```
 
 
-
 To setup Netbricks:
 ```
 curl -s -L https://raw.githubusercontent.com/jethrosun/dev-utils/master/scripts/netbricks-setup.sh | bash
