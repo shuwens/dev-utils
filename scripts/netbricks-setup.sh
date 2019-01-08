@@ -25,4 +25,4 @@ rustup install nightly-2018-12-31
 rustup default nightly-2018-12-31
 
 # git repo
-mkdir git && cd git && git clone https://github.com/jethrosun/NetBricks.git -b fix-dpdk netbricks
+mkdir git && cd git && git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks
