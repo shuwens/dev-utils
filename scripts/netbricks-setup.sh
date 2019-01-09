@@ -12,7 +12,7 @@ sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev li
 sudo apt-get install -y linux-headers-$(uname -r)
 
 # install clang 7.0 and cmake
-sudo apt-get install -y clang-7.0 cmake
+sudo apt-get install -y clang-6.0 cmake
 
 # musl
 sudo apt-get install -y musl-tools
