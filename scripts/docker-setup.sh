@@ -9,7 +9,7 @@ sudo apt update
 sudo apt install -y docker-ce
 
 sudo usermod -aG docker ${USER}
-su - ${USER}
+sudo su - ${USER}
 
 sudo systemctl status docker
 
