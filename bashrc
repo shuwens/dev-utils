@@ -181,6 +181,7 @@ alias ,='make'
 
 # editing
 alias e='$EDITOR'
+alias Ev='vim ~/.config/nvim/init.vim'
 # Safety first
 alias mv='mv -i'
 # git alias

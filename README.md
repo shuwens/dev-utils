@@ -17,5 +17,5 @@ curl -s -L https://raw.githubusercontent.com/jethrosun/dev-utils/master/scripts/
 
 To setup nvim
 ```
-mkdir -p ~/.config && cd ~/.config && git clone  https://github.com/jethrosun/yavc.git -b neovim nvim
+curl -s -L https://raw.githubusercontent.com/jethrosun/dev-utils/master/scripts/dev-setup.sh | bash
 ```
