@@ -17,11 +17,13 @@ sudo apt-get install -y clang-5.0 cmake
 # musl
 sudo apt-get install -y musl-tools
 
+sudo apt-get install -y python-virtualenv python3-dev python3 python3-venv
 
 # setup rust
 curl https://sh.rustup.rs -sSf | sh  # Install rustup
 source $HOME/.cargo/env
 rustup install nightly
+rustup install nightly-2019-01-09
 rustup default nightly
 
 # git repo
