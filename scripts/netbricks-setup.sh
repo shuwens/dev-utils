@@ -2,6 +2,12 @@
 
 set -ex
 
+# update
+sudo apt-get update
+
+# to make sure we have everything
+sudo apt-get install -y git curl
+
 # make my life easy
 sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag
 
@@ -30,4 +36,4 @@ rustup install nightly-2019-01-08
 rustup default nightly-2019-01-08
 
 # git repo
-mkdir git && cd git && git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks
+mkdir -p git && cd git && git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks
