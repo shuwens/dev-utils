@@ -2,6 +2,7 @@
 #   This bash config file is modified from Jonhoo's bashrc file.
 
 # IMPORTANT ENV
+export EDITOR=vim
 
 # Rust
 if [[ -e $HOME/.cargo ]]; then
@@ -189,6 +190,7 @@ alias gs="git status"
 alias gits="git status"
 alias gl="git log --graph --decorate --oneline"
 alias gc='git checkout'
+alias cc="checkout -- ."
 alias gs='git status -s'
 alias ca='git commit -a -m'
 alias lazy="git add -A && git commit -m 'Update some files' && git push "
@@ -197,6 +199,7 @@ alias lazy="git add -A && git commit -m 'Update some files' && git push "
 if type nvim >/dev/null 2>/dev/null; then
 	alias vi=nvim
 	alias vim=nvim
+	export EDITOR=nvim
 fi
 
 # Type - to move up to top parent dir which is a repository
