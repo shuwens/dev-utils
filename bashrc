@@ -183,6 +183,7 @@ alias ,='make'
 # editing
 alias e='$EDITOR'
 alias Ev='vim ~/.config/nvim/init.vim'
+alias Eb='vim ~/.bashrc'
 # Safety first
 alias mv='mv -i'
 # git alias
@@ -224,5 +225,14 @@ if [ -e /opt/stack/devstack/openrc ]; then
 	echo -e "\e[37mbtw: enabling __Devstack__ from the default location...\e[0m";
 	source /opt/stack/devstack/openrc
 fi
+
+export LD_LIBRARY_PATH=/usr/local/lib
+
+# NetBricks Env
+if [ -e $HOME/dev/netbricks/native ]; then
+	echo -e "\e[37mbtw: enabling __libzcsi__ from the default location...\e[0m";
+	export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
+fi
+
 
 # end of [.bashrc]

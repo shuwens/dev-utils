@@ -23,17 +23,5 @@ sudo apt-get install -y clang-5.0 cmake
 # musl
 sudo apt-get install -y musl-tools
 
-
-# setup rust
-curl https://sh.rustup.rs -sSf | sh  # Install rustup
-
-source $HOME/.cargo/env
-
-#rustup install nightly
-#rustup default nightly
-
-rustup install nightly
-rustup default nightly
-
 # git repo
-mkdir -p ~/dev && cd ~/dev && git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks
+mkdir -p ~/dev && cd ~/dev && git clone https://github.com/melvinw/pktgen.git
