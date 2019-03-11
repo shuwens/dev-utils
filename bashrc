@@ -234,5 +234,6 @@ if [ -e $HOME/dev/netbricks/native ]; then
 	export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
 fi
 
+echo
 
 # end of [.bashrc]
