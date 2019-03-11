@@ -1,4 +1,5 @@
 #!/bin/bash
 
 mv ~/.bashrc ~/.bashrc.bak
-ln -s ~/.bashrc $PWD/bashrc
+ln -s $PWD/bashrc ~/.bashrc 
+
