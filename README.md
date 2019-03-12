@@ -3,7 +3,7 @@
 
 ## Step 1
 ```
-mkdir -p ~/git/ && git clone https://github.com/jethrosun/dev-utils.git
+mkdir -p ~/git && cd ~/git && git clone https://github.com/jethrosun/dev-utils.git
 ```
 
 
