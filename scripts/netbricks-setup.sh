@@ -21,7 +21,7 @@ sudo apt-get install -y linux-headers-$(uname -r)
 sudo apt-get install -y clang-5.0 cmake
 
 # musl
-sudo apt-get install -y musl-tools
+sudo apt-get install -y musl-tools numactl
 
 
 # setup rust
