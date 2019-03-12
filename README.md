@@ -1,10 +1,15 @@
 # dev-utils
 
-To setup bash
+
+## Step 1
 ```
-wget -O ~/.bashrc https://raw.githubusercontent.com/jethrosun/dev-utils/master/bashrc && bash
+mkdir ~/git/ && git clone https://github.com/jethrosun/dev-utils.git
 ```
 
+
+
+
+## old
 To setup Netbricks:
 ```
 curl -s -L https://raw.githubusercontent.com/jethrosun/dev-utils/master/scripts/netbricks-setup.sh | bash
