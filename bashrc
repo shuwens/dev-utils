@@ -2,6 +2,7 @@
 #   This bash config file is modified from Jonhoo's bashrc file.
 
 # IMPORTANT ENV
+export OPEN_NET_VM=""
 export EDITOR=vim
 
 # Rust
@@ -230,17 +231,21 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 # NetBricks Env
 if [ -e $HOME/dev/netbricks/native ]; then
-	echo -e "\e[37mbtw: enabling __libzcsi__ from the default location...\e[0m";
-	export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
+	#echo -e "\e[37mbtw: enabling __libzcsi__ from the default location...\e[0m";
+	#export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
+	echo
 fi
 
 
-# NetBricks Env
-export ONVM_HOME=/home/jethros/dev/openNetVM
-export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
-export RTE_TARGET=x86_64-native-linuxapp-gcc
-export ONVM_NUM_HUGEPAGES=10
-export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
+# OpenNetVM Env
+if [[ "$OPEN_NET_VM" ]]; then
+	echo -e "\e[37mbtw: enabling __OpenNetVM__ as configured...\e[0m";
+	export ONVM_HOME=/home/jethros/dev/openNetVM
+	export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
+	export RTE_TARGET=x86_64-native-linuxapp-gcc
+	export ONVM_NUM_HUGEPAGES=10
+	export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
+fi
 
 echo
 
