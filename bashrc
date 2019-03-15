@@ -234,6 +234,14 @@ if [ -e $HOME/dev/netbricks/native ]; then
 	export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
 fi
 
+
+# NetBricks Env
+export ONVM_HOME=/home/jethros/dev/openNetVM
+export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
+export RTE_TARGET=x86_64-native-linuxapp-gcc
+export ONVM_NUM_HUGEPAGES=10
+export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
+
 echo
 
 # end of [.bashrc]
