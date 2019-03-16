@@ -230,12 +230,10 @@ fi
 export LD_LIBRARY_PATH=/usr/local/lib
 
 # NetBricks Env
-if [ -e $HOME/dev/netbricks/native ]; then
+#if [ -e $HOME/dev/netbricks/native ]; then
 	#echo -e "\e[37mbtw: enabling __libzcsi__ from the default location...\e[0m";
 	#export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
-	echo
-fi
-
+#fi
 
 # OpenNetVM Env
 if [[ "$OPEN_NET_VM" ]]; then
