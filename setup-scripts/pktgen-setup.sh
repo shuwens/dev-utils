@@ -11,7 +11,7 @@ sudo apt-get install -y git curl
 
 # install ubuntu deps
 #sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev  libsctp-dev gcc libprotobuf-c-dev
-sudo apt-get install -y libpcap-dev libprotobuf-c-dev libnuma-dev dpdk-igb-uio-dkms
+sudo apt-get install -y libpcap-dev libprotobuf-c-dev libnuma-dev
 
 # install kernel headers
 sudo apt-get install -y linux-headers-$(uname -r)
