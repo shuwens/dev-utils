@@ -2,7 +2,7 @@
 #   This bash config file is modified from Jonhoo's bashrc file.
 
 # IMPORTANT ENV
-export OPEN_NET_VM=""
+export OPEN_NET_VM="y"
 export EDITOR=vim
 
 # Rust
@@ -236,6 +236,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 #fi
 
 # OpenNetVM Env
+if [ -e /home/jethros/dev/openNetVM ]; then
 if [[ "$OPEN_NET_VM" ]]; then
 	echo -e "\e[37mbtw: enabling __OpenNetVM__ as configured...\e[0m";
 	export ONVM_HOME=/home/jethros/dev/openNetVM
@@ -244,15 +245,16 @@ if [[ "$OPEN_NET_VM" ]]; then
 	export ONVM_NUM_HUGEPAGES=10
 	export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
 fi
+fi
 
 # just to make my life easier..
 if [ -e ~/dev/netbricks/ ]; then
-	echo -e "\e[37mbtw: enabling __OpenNetVM__ as configured...\e[0m";
-	alias net=cd ~/dev/netbricks/
-	alias netd=cd ~/dev/netbricks/3rdparty/dpdk/examples
-	alias lpm=cd ~/dev/netbricks/test/lpm/
-	alias op=cd ~/dev/openNetVM/
-	alias opd=cd ~/dev/openNetVM/dpdk/examples
+	echo -e "\e[37mbtw: aliasing net, netd, lpm, op, opd...\e[0m";
+	alias net="cd ~/dev/netbricks/"
+	alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
+	alias lpm="cd ~/dev/netbricks/test/lpm/"
+	alias op="cd ~/dev/openNetVM/"
+	alias opd="cd ~/dev/openNetVM/dpdk/examples"
 fi
 
 echo
