@@ -245,6 +245,15 @@ if [[ "$OPEN_NET_VM" ]]; then
 	export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
 fi
 
-echo
+# just to make my life easier..
+if [ -e ~/dev/netbricks/ ]; then
+	echo -e "\e[37mbtw: enabling __OpenNetVM__ as configured...\e[0m";
+	alias net=cd ~/dev/netbricks/
+	alias netd=cd ~/dev/netbricks/3rdparty/dpdk/examples
+	alias lpm=cd ~/dev/netbricks/test/lpm/
+	alias op=cd ~/dev/openNetVM/
+	alias opd=cd ~/dev/openNetVM/dpdk/examples
+fi
 
+echo
 # end of [.bashrc]
