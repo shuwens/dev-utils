@@ -257,7 +257,7 @@ if [ -e ~/dev/netbricks/ ]; then
 	alias op="cd ~/dev/openNetVM/"
 	alias opd="cd ~/dev/openNetVM/dpdk/examples"
 	alias pg="cd ~/dev/pktgen-dpdk/"
-	alias clone_git="git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks"
+	alias clone_git="git clone https://github.com/jethrosun/NetBricks.git -b dev ~/dev/netbricks"
 fi
 
 echo
