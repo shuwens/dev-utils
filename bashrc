@@ -253,7 +253,7 @@ if [ -e ~/dev/netbricks/ ]; then
 	alias net="cd ~/dev/netbricks/"
 	alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
 	alias lpm="cd ~/dev/netbricks/test/lpm/"
-	alias lpm="cd ~/dev/netbricks/test/chain-test/"
+	alias chain="cd ~/dev/netbricks/test/chain-test/"
 	alias op="cd ~/dev/openNetVM/"
 	alias opd="cd ~/dev/openNetVM/dpdk/examples"
 	alias pg="cd ~/dev/pktgen-dpdk/"
