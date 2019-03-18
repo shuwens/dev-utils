@@ -249,10 +249,11 @@ fi
 
 # just to make my life easier..
 if [ -e ~/dev/netbricks/ ]; then
-	echo -e "\e[37mbtw: aliasing net, netd, lpm, op, opd, pg...\e[0m";
+	echo -e "\e[37mbtw: aliasing net, netd, lpm, chain, op, opd, pg...\e[0m";
 	alias net="cd ~/dev/netbricks/"
 	alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
 	alias lpm="cd ~/dev/netbricks/test/lpm/"
+	alias lpm="cd ~/dev/netbricks/test/chain-test/"
 	alias op="cd ~/dev/openNetVM/"
 	alias opd="cd ~/dev/openNetVM/dpdk/examples"
 	alias pg="cd ~/dev/pktgen-dpdk/"
