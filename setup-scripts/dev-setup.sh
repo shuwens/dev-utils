@@ -14,3 +14,4 @@ fi
 source $HOME/.cargo/env
 rustup component add rls rust-analysis rust-src
 rustup component add rustfmt
+rustup component add clippy
