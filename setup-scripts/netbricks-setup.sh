@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 # update
 sudo apt-get update
@@ -24,12 +24,13 @@ sudo apt-get install -y clang-5.0 cmake
 sudo apt-get install -y musl-tools numactl gdb
 
 
-if [ -e $HOME/cargo/env ]; then
-	echo "Passing, Rust already exists.."
-else
+if [ -e $HOME/cargo/ ]; then
 	# setup rust
 	curl https://sh.rustup.rs -sSf | sh  # Install rustup
 	rustup default nightly
+else
+	echo "Passing, Rust already exists.."
+
 fi
 
 source $HOME/.cargo/env
