@@ -24,16 +24,27 @@ sudo apt-get install -y clang-5.0 cmake
 sudo apt-get install -y musl-tools numactl gdb
 
 
-# setup rust
-curl https://sh.rustup.rs -sSf | sh  # Install rustup
+if [ -e $HOME/cargo/env ]; then
+	echo "Passing, Rust already exists.."
+else
+	# setup rust
+	curl https://sh.rustup.rs -sSf | sh  # Install rustup
+	rustup default nightly
+fi
 
 source $HOME/.cargo/env
-
-#rustup install nightly
-#rustup default nightly
-
 rustup install nightly
 rustup default nightly
 
-# git repo
-mkdir -p ~/dev && cd ~/dev && git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks
+rustup component add rls rust-analysis rust-src
+rustup component add rustfmt clippy
+
+cargo install cargo-tree cargo-readme
+cargo install --force --git https://github.com/kbknapp/cargo-outdated
+
+if [ -e $HOME/dev/netbricks ]; then
+	echo "Passing, netbricks exists.."
+else
+	# git repo
+	mkdir -p ~/dev && cd ~/dev && git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks
+fi
