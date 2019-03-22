@@ -40,7 +40,7 @@ rustup default nightly
 rustup component add rls rust-analysis rust-src
 rustup component add rustfmt clippy
 
-cargo install cargo-tree cargo-readme
+cargo install --force cargo-tree cargo-readme
 cargo install --force --git https://github.com/kbknapp/cargo-outdated
 
 if [ -e $HOME/dev/netbricks ]; then
