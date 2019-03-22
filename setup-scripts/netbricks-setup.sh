@@ -6,7 +6,7 @@ set -e
 sudo apt-get update
 
 # to make sure we have everything
-sudo apt-get install -y git curl libssl-dev pkg-config dpdk-igb-uio-dkms
+sudo apt-get install -y git curl libssl-dev pkg-config #dpdk-igb-uio-dkms
 
 # make my life easy
 sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark
