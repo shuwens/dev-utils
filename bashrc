@@ -249,7 +249,7 @@ fi
 
 # just to make my life easier..
 if [ -e ~/dev/netbricks/ ]; then
-	echo -e "\e[37mbtw: aliasing net, netd, lpm, chain, op, opd, pg...\e[0m";
+	echo -e "\e[37mbtw: aliasing net, netd, lpm, chain, op, opd, pg, cnet, recon...\e[0m";
 	alias net="cd ~/dev/netbricks/"
 	alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
 	alias lpm="cd ~/dev/netbricks/test/lpm/"
@@ -258,6 +258,7 @@ if [ -e ~/dev/netbricks/ ]; then
 	alias opd="cd ~/dev/openNetVM/dpdk/examples"
 	alias pg="cd ~/dev/pktgen-dpdk/"
 	alias cnet="git clone https://github.com/jethrosun/NetBricks.git -b dev ~/dev/netbricks && cd ~/dev/netbricks && ./build.sh"
+	alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
 fi
 
 echo
