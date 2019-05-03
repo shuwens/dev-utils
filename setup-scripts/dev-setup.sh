@@ -3,7 +3,7 @@ set -ex
 
 sudo apt-get install -y python-virtualenv python3-dev python3 python3-venv
 
-curl -sL install-node.now.sh/lts | sh
+curl -sL install-node.now.sh/lts | bash
 # Optional install yarn if you want install extension by CocInstall command
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
