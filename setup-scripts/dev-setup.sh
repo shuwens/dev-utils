@@ -3,5 +3,12 @@ set -ex
 
 sudo apt-get install -y python-virtualenv python3-dev python3 python3-venv
 
+curl -sL install-node.now.sh/lts | sh
+# Optional install yarn if you want install extension by CocInstall command
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+
+pip install neovim
+pip3 install neovim
+
 mkdir -p ~/.config && cd ~/.config && git clone  https://github.com/jethrosun/yavc.git -b neovim nvim
 
