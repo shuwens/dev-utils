@@ -185,8 +185,10 @@ alias ,='make'
 alias e='$EDITOR'
 alias Ev='vim ~/.config/nvim/init.vim'
 alias Eb='vim ~/.bashrc'
+
 # Safety first
 alias mv='mv -i'
+
 # git alias
 alias gs="git status"
 alias gits="git status"
@@ -196,6 +198,7 @@ alias cc="checkout -- ."
 alias gs='git status -s'
 alias ca='git commit -a -m'
 alias lazy="git add -A && git commit -m 'Update some files' && git push "
+alias cnet="git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netbricks && cd ~/dev/netbricks && ./build.sh"
 
 # use nvim if I set it up
 if type nvim >/dev/null 2>/dev/null; then
@@ -257,7 +260,6 @@ if [ -e ~/dev/netbricks/ ]; then
   alias op="cd ~/dev/openNetVM/"
   alias opd="cd ~/dev/openNetVM/dpdk/examples"
   alias pg="cd ~/dev/pktgen-dpdk/"
-  alias cnet="git clone https://github.com/jethrosun/NetBricks.git -b dev ~/dev/netbricks && cd ~/dev/netbricks && ./build.sh"
   alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
 fi
 
