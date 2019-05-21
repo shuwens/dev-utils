@@ -20,6 +20,7 @@ abbr -a ca 'git commit -a -m'
 abbr -a lazy "git add -A && git commit -m 'Update some files' && git push "
 abbr -a cnet "git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netbricks && cd ~/dev/netbricks && ./build.sh"
 abbr -a net "cd ~/dev/netbricks/"
+abbr -a pg "cd ~/dev/pktgen-dpdk/"
 
 # if test -e ~/data/cargo-target
 #     setenv CARGO_TARGET_DIR ~/data/cargo-target
@@ -60,7 +61,6 @@ abbr -a net "cd ~/dev/netbricks/"
 #   alias chain="cd ~/dev/netbricks/test/chain-test/"
 #   alias op="cd ~/dev/openNetVM/"
 #   alias opd="cd ~/dev/openNetVM/dpdk/examples"
-#   alias pg="cd ~/dev/pktgen-dpdk/"
 #   alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
 # fi
 #
