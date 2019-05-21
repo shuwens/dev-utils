@@ -114,9 +114,7 @@ setenv CARGO_INCREMENTAL 1
 setenv RUSTFLAGS "-C target-cpu=native"
 setenv RUST_BACKTRACE 1
 setenv LESS "-F -X -R"
-if test -e ~/data/cargo-target
-	setenv CARGO_TARGET_DIR ~/data/cargo-target
-end
+
 set PATH $PATH ~/.cargo/bin
 
 # Fish should not add things to clipboard when killing
