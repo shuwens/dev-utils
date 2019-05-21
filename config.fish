@@ -6,6 +6,67 @@ abbr -a g git
 abbr -a gc 'git checkout'
 abbr -a vimdiff 'nvim -d'
 abbr -a ct 'cargo t'
+
+# special stuff
+abbr -a Ef 'nvim ~/.config/fish/config.fish'
+abbr -a Ev 'vim ~/.config/nvim/init.vim'
+abbr -a gs "git status"
+abbr -a gits "git status"
+abbr -a gl "git log --graph --decorate --oneline"
+abbr -a gc 'git clone'
+abbr -a cc "checkout -- ."
+abbr -a gs 'git status -s'
+abbr -a ca 'git commit -a -m'
+abbr -a lazy "git add -A && git commit -m 'Update some files' && git push "
+abbr -a cnet "git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netbricks && cd ~/dev/netbricks && ./build.sh"
+abbr -a net "cd ~/dev/netbricks/"
+
+# if test -e ~/data/cargo-target
+#     setenv CARGO_TARGET_DIR ~/data/cargo-target
+# end
+#
+# # source the devstack xxx file if I am in a devstack
+# if [ -e /opt/stack/devstack/openrc ]; then
+#   echo -e "\e[37mbtw: enabling __Devstack__ from the default location...\e[0m";
+#   source /opt/stack/devstack/openrc
+# fi
+#
+# export LD_LIBRARY_PATH=/usr/local/lib
+#
+# # NetBricks Env
+# #if [ -e $HOME/dev/netbricks/native ]; then
+# #echo -e "\e[37mbtw: enabling __libzcsi__ from the default location...\e[0m";
+# #export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
+# #fi
+#
+# # OpenNetVM Env
+# if [ -e /home/jethros/dev/openNetVM ]; then
+#   if [[ "$OPEN_NET_VM" ]]; then
+#     echo -e "\e[37mbtw: enabling __OpenNetVM__ as configured...\e[0m";
+#     export ONVM_HOME=/home/jethros/dev/openNetVM
+#     export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
+#     export RTE_TARGET=x86_64-native-linuxapp-gcc
+#     export ONVM_NUM_HUGEPAGES=10
+#     export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
+#   fi
+# fi
+#
+# # just to make my life easier..
+# if [ -e ~/dev/netbricks/ ]; then
+#   echo -e "\e[37mbtw: aliasing net, netd, lpm, chain, op, opd, pg, cnet, recon...\e[0m";
+#   alias net="cd ~/dev/netbricks/"
+#   alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
+#   alias lpm="cd ~/dev/netbricks/test/lpm/"
+#   alias chain="cd ~/dev/netbricks/test/chain-test/"
+#   alias op="cd ~/dev/openNetVM/"
+#   alias opd="cd ~/dev/openNetVM/dpdk/examples"
+#   alias pg="cd ~/dev/pktgen-dpdk/"
+#   alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
+# fi
+#
+
+
+
 complete --command aurman --wraps pacman
 
 if command -v aurman > /dev/null
@@ -47,8 +108,8 @@ setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 # Set envvars since we don't have .pam_environment
 setenv EDITOR nvim
 setenv BROWSER links
-setenv NAME "Jon Gjengset"
-setenv EMAIL jon@tsp.io
+setenv NAME "Jethro Shuwen Sun"
+setenv EMAIL jethro.sun7@gmail.com
 setenv CARGO_INCREMENTAL 1
 setenv RUSTFLAGS "-C target-cpu=native"
 setenv RUST_BACKTRACE 1
@@ -63,25 +124,25 @@ set PATH $PATH ~/.cargo/bin
 set FISH_CLIPBOARD_CMD "cat"
 
 function fish_prompt
-	set_color brblack
-	echo -n "["(date "+%H:%M")"] "
-	set_color yellow
-	echo -n (whoami)
-	set_color normal
-	echo -n "@"
-	set_color blue
-	echo -n (hostname)
-	if [ $PWD != $HOME ]
-		set_color brblack
-		echo -n ':'
-		set_color yellow
-		echo -n (basename $PWD)
-	end
-	set_color green
-	printf '%s ' (__fish_git_prompt)
-	set_color red
-	echo -n '| '
-	set_color normal
+  set_color white
+  echo -n "["(date "+%H:%M")"] "
+  set_color yellow
+  echo -n (whoami)
+  set_color normal
+  echo -n '@'
+  set_color blue
+  echo -n (hostname)" "
+  set_color green
+  echo -n (prompt_pwd)
+  set_color brown
+  printf '%s ' (__fish_git_prompt)
+  set_color red
+  if [ (whoami) = "root" ]
+    echo -n '# '
+  else
+    echo -n '$ '
+  end
+  set_color normal
 end
 
 function fish_greeting
