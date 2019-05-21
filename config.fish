@@ -1,4 +1,5 @@
 abbr -a c cargo
+abbr -a vim nvim
 abbr -a e nvim
 abbr -a m make
 abbr -a g git
@@ -52,8 +53,8 @@ setenv CARGO_INCREMENTAL 1
 setenv RUSTFLAGS "-C target-cpu=native"
 setenv RUST_BACKTRACE 1
 setenv LESS "-F -X -R"
-if test -e ~/.cargo-target
-	setenv CARGO_TARGET_DIR ~/.cargo-target
+if test -e ~/data/cargo-target
+	setenv CARGO_TARGET_DIR ~/data/cargo-target
 end
 set PATH $PATH ~/.cargo/bin
 
