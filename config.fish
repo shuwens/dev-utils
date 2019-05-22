@@ -17,10 +17,46 @@ abbr -a gc 'git clone'
 abbr -a cc "checkout -- ."
 abbr -a gs 'git status -s'
 abbr -a ca 'git commit -a -m'
-abbr -a lazy "git add -A && git commit -m 'Update some files' && git push "
 abbr -a cnet "git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netbricks && cd ~/dev/netbricks && ./build.sh"
 abbr -a net "cd ~/dev/netbricks/"
 abbr -a pg "cd ~/dev/pktgen-dpdk/"
+
+function lazy
+    if test "$argv"
+        git add -A
+        git commit -m "Update: $argv"
+        git push
+    else
+        git add -A
+        git commit -m "Just some simple update"
+        git push
+    end
+end
+
+function check
+    if test "$argv"
+        git add -A
+        git commit -m "Checkpoint: $argv"
+        git push
+    else
+        git add -A
+        git commit -m "Checkpoint: random"
+        git push
+    end
+end
+
+function change
+    if test "$argv"
+        git add -A
+        git diff --name-status HEAD
+        git commit -m "[ChangeList] $argv"
+        git push
+    else
+        git add -A
+        git commit -m "Small changes"
+        git push
+    end
+end
 
 # if test -e ~/data/cargo-target
 #     setenv CARGO_TARGET_DIR ~/data/cargo-target
@@ -121,26 +157,34 @@ set PATH $PATH ~/.cargo/bin
 # See https://github.com/fish-shell/fish-shell/issues/772
 set FISH_CLIPBOARD_CMD "cat"
 
-function fish_prompt
-  set_color white
-  echo -n "["(date "+%H:%M")"] "
-  set_color yellow
-  echo -n (whoami)
-  set_color normal
-  echo -n '@'
-  set_color blue
-  echo -n (hostname)" "
-  set_color green
-  echo -n (prompt_pwd)
-  set_color brown
-  printf '%s ' (__fish_git_prompt)
-  set_color red
-  if [ (whoami) = "root" ]
-    echo -n '# '
+set normal (set_color normal)
+set magenta (set_color magenta)
+set yellow (set_color yellow)
+set green (set_color green)
+set red (set_color red)
+set gray (set_color -o black)
+
+set fish_git_dirty_color red
+set fish_git_not_dirty_color green
+
+function parse_git_branch
+  set -l branch (git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1/')
+  set -l git_status (git status -s)
+
+  if test -n "$git_status"
+    echo (set_color $fish_git_dirty_color)$branch(set_color normal)
   else
-    echo -n '$ '
+    echo (set_color $fish_git_not_dirty_color)$branch(set_color normal)
   end
-  set_color normal
+end
+
+function fish_prompt
+  set -l git_dir (git rev-parse --git-dir 2> /dev/null)
+  if test -n "$git_dir"
+    printf '%s@%s %s%s%s:%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch)
+  else
+    printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+  end
 end
 
 function fish_greeting
