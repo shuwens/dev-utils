@@ -58,6 +58,29 @@ function change
     end
 end
 
+# fzf
+set PATH $PATH $HOME/.fzf/bin
+setenv FZF_DEFAULT_OPTS '--height 20%'
+
+if [ -e $HOME/.fzf/shell/key-bindings.fish ]; and status --is-interactive
+    . $HOME/.fzf/shell/key-bindings.fish
+end
+
+if test (uname) = Darwin
+    setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
+    setenv FZF_CTRL_T_COMMAND 'fd --type file --follow'
+else
+    setenv FZF_DEFAULT_COMMAND 'ag -g ""'
+    setenv FZF_CTRL_T_COMMAND 'ag -g ""'
+end
+
+function fish_user_key_bindings
+    bind \cz 'fg>/dev/null ^/dev/null'
+    if functions -q fzf_key_bindings
+        fzf_key_bindings
+    end
+end
+
 # if test -e ~/data/cargo-target
 #     setenv CARGO_TARGET_DIR ~/data/cargo-target
 # end
