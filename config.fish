@@ -175,6 +175,7 @@ setenv RUST_BACKTRACE 1
 setenv LESS "-F -X -R"
 
 set PATH $PATH ~/.cargo/bin
+set PATH $PATH /snap/bin
 
 # Fish should not add things to clipboard when killing
 # See https://github.com/fish-shell/fish-shell/issues/772
