@@ -9,7 +9,7 @@ abbr -a ct 'cargo t'
 
 # special stuff
 abbr -a Ef 'nvim ~/.config/fish/config.fish'
-abbr -a Ev 'vim ~/.config/nvim/init.vim'
+abbr -a Ev 'nvim ~/.config/nvim/init.vim'
 abbr -a gs "git status"
 abbr -a gits "git status"
 abbr -a gl "git log --graph --decorate --oneline"
@@ -205,9 +205,9 @@ end
 function fish_prompt
   set -l git_dir (git rev-parse --git-dir 2> /dev/null)
   if test -n "$git_dir"
-    printf '%s@%s %s%s%s:%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch)
+    printf '%s@%s %s%s%s:%s> ' (whoami) (hostname|cut -d . -f 1) (set_color yellow) (prompt_pwd) (set_color normal) (parse_git_branch)
   else
-    printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+    printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color yellow) (prompt_pwd) (set_color normal)
   end
 end
 
@@ -258,4 +258,3 @@ function fish_greeting
 	echo
 	set_color normal
 end
-
