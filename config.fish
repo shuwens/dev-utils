@@ -17,68 +17,46 @@ abbr -a gc 'git clone'
 abbr -a cc "checkout -- ."
 abbr -a gs 'git status -s'
 abbr -a ca 'git commit -a -m'
-abbr -a cnet "git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netbricks && cd ~/dev/netbricks && ./build.sh"
-abbr -a net "cd ~/dev/netbricks/"
+abbr -a cnet "git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
+abbr -a n "cd ~/dev/netbricks/"
 abbr -a pg "cd ~/dev/pktgen-dpdk/"
+abbr -a c "command $HOME/dev/netbricks/build.sh"
 
+# for git journal, I should only use ["Added", "Changed", "Fixed", "Improved", "Removed"]
 function lazy
-    if test "$argv"
-        git add -A
-        git commit -m "Update: $argv"
-        git push
-    else
-        git add -A
-        git commit -m "Just some simple update"
-        git push
-    end
+  if test "$argv"
+    git add -A
+    git commit -m "$argv"
+    git push
+  else
+    git add -A
+    git commit -m "Changed files w/ little update"
+    git push
+  end
 end
 
-function check
-    if test "$argv"
-        git add -A
-        git commit -m "Checkpoint: $argv"
-        git push
-    else
-        git add -A
-        git commit -m "Checkpoint: random"
-        git push
-    end
-end
-
-function change
-    if test "$argv"
-        git add -A
-        git diff --name-status HEAD
-        git commit -m "[ChangeList] $argv"
-        git push
-    else
-        git add -A
-        git commit -m "Small changes"
-        git push
-    end
-end
 
 # fzf
 set PATH $PATH $HOME/.fzf/bin
 setenv FZF_DEFAULT_OPTS '--height 20%'
 
 if [ -e $HOME/.fzf/shell/key-bindings.fish ]; and status --is-interactive
-    . $HOME/.fzf/shell/key-bindings.fish
+  . $HOME/.fzf/shell/key-bindings.fish
 end
 
 if test (uname) = Darwin
-    setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
-    setenv FZF_CTRL_T_COMMAND 'fd --type file --follow'
+  setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
+  setenv FZF_CTRL_T_COMMAND 'fd --type file --follow'
 else
-    setenv FZF_DEFAULT_COMMAND 'ag -g ""'
-    setenv FZF_CTRL_T_COMMAND 'ag -g ""'
+  setenv FZF_DEFAULT_COMMAND 'ag -g ""'
+  setenv FZF_CTRL_T_COMMAND 'ag -g ""'
 end
 
 function fish_user_key_bindings
-    bind \cz 'fg>/dev/null ^/dev/null'
-    if functions -q fzf_key_bindings
-        fzf_key_bindings
-    end
+  bind \cz 'fg>/dev/null ^/dev/null'
+  if functions -q fzf_key_bindings
+    fzf_key_bindings
+  end
 end
 
 # if test -e ~/data/cargo-target
@@ -129,22 +107,22 @@ end
 complete --command aurman --wraps pacman
 
 if command -v aurman > /dev/null
-	abbr -a p 'aurman'
-	abbr -a up 'aurman -Syu'
+  abbr -a p 'aurman'
+  abbr -a up 'aurman -Syu'
 else
-	abbr -a p 'sudo pacman'
-	abbr -a up 'sudo pacman -Syu'
+  abbr -a p 'sudo pacman'
+  abbr -a up 'sudo pacman -Syu'
 end
 
 if command -v exa > /dev/null
-	abbr -a l 'exa'
-	abbr -a ls 'exa'
-	abbr -a ll 'exa -l'
-	abbr -a lll 'exa -la'
+  abbr -a l 'exa'
+  abbr -a ls 'exa'
+  abbr -a ll 'exa -l'
+  abbr -a lll 'exa -la'
 else
-	abbr -a l 'ls'
-	abbr -a ll 'ls -l'
-	abbr -a lll 'ls -la'
+  abbr -a l 'ls'
+  abbr -a ll 'ls -l'
+  abbr -a lll 'ls -la'
 end
 
 # Fish git prompt
@@ -197,64 +175,64 @@ function parse_git_branch
 
   if test -n "$git_status"
     echo (set_color $fish_git_dirty_color)$branch(set_color normal)
-  else
-    echo (set_color $fish_git_not_dirty_color)$branch(set_color normal)
-  end
+else
+  echo (set_color $fish_git_not_dirty_color)$branch(set_color normal)
+end
 end
 
 function fish_prompt
   set -l git_dir (git rev-parse --git-dir 2> /dev/null)
   if test -n "$git_dir"
     printf '%s@%s %s%s%s:%s> ' (whoami) (hostname|cut -d . -f 1) (set_color yellow) (prompt_pwd) (set_color normal) (parse_git_branch)
-  else
-    printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color yellow) (prompt_pwd) (set_color normal)
-  end
+else
+  printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color yellow) (prompt_pwd) (set_color normal)
+end
 end
 
 function fish_greeting
-	echo
-	echo -e (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
-	echo -e (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')
-	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')
-	echo -e " \\e[1mDisk usage:\\e[0m"
-	echo
-	echo -ne (\
-		df -l -h | grep -E 'dev/(xvda|sd|mapper)' | \
-		awk '{printf "\\\\t%s\\\\t%4s / %4s  %s\\\\n\n", $6, $3, $2, $5}' | \
-		sed -e 's/^\(.*\([8][5-9]\|[9][0-9]\)%.*\)$/\\\\e[0;31m\1\\\\e[0m/' -e 's/^\(.*\([7][5-9]\|[8][0-4]\)%.*\)$/\\\\e[0;33m\1\\\\e[0m/' | \
-		paste -sd ''\
-	)
-	echo
+  echo
+  echo -e (uname -ro | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
+  echo -e (uptime -p | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')
+  echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')
+  echo -e " \\e[1mDisk usage:\\e[0m"
+  echo
+  echo -ne (\
+  df -l -h | grep -E 'dev/(xvda|sd|mapper)' | \
+  awk '{printf "\\\\t%s\\\\t%4s / %4s  %s\\\\n\n", $6, $3, $2, $5}' | \
+  sed -e 's/^\(.*\([8][5-9]\|[9][0-9]\)%.*\)$/\\\\e[0;31m\1\\\\e[0m/' -e 's/^\(.*\([7][5-9]\|[8][0-4]\)%.*\)$/\\\\e[0;33m\1\\\\e[0m/' | \
+  paste -sd ''\
+  )
+  echo
 
-	echo -e " \\e[1mNetwork:\\e[0m"
-	echo
-	# http://tdt.rocks/linux_network_interface_naming.html
-	echo -ne (\
-		ip addr show up scope global | \
-			grep -E ': <|inet' | \
-			sed \
-				-e 's/^[[:digit:]]\+: //' \
-				-e 's/: <.*//' \
-				-e 's/.*inet[[:digit:]]* //' \
-				-e 's/\/.*//'| \
-			awk 'BEGIN {i=""} /\.|:/ {print i" "$0"\\\n"; next} // {i = $0}' | \
-			sort | \
-			#column -t -R1 | \
-			# public addresses are underlined for visibility \
-			sed 's/ \([^ ]\+\)$/ \\\e[4m\1/' | \
-			# private addresses are not \
-			sed 's/m\(\(10\.\|172\.\(1[6-9]\|2[0-9]\|3[01]\)\|192\.168\.\).*\)/m\\\e[24m\1/' | \
-			# unknown interfaces are cyan \
-			sed 's/^\( *[^ ]\+\)/\\\e[36m\1/' | \
-			# ethernet interfaces are normal \
-			sed 's/\(\(en\|em\|eth\)[^ ]* .*\)/\\\e[39m\1/' | \
-			# wireless interfaces are purple \
-			sed 's/\(wl[^ ]* .*\)/\\\e[35m\1/' | \
-			# wwan interfaces are yellow \
-			sed 's/\(ww[^ ]* .*\).*/\\\e[33m\1/' | \
-			sed 's/$/\\\e[0m/' | \
-			sed 's/^/\t/' \
-		)
-	echo
-	set_color normal
+  echo -e " \\e[1mNetwork:\\e[0m"
+  echo
+  # http://tdt.rocks/linux_network_interface_naming.html
+  echo -ne (\
+  ip addr show up scope global | \
+  grep -E ': <|inet' | \
+  sed \
+  -e 's/^[[:digit:]]\+: //' \
+  -e 's/: <.*//' \
+  -e 's/.*inet[[:digit:]]* //' \
+  -e 's/\/.*//'| \
+  awk 'BEGIN {i=""} /\.|:/ {print i" "$0"\\\n"; next} // {i = $0}' | \
+  sort | \
+  #column -t -R1 | \
+  # public addresses are underlined for visibility \
+  sed 's/ \([^ ]\+\)$/ \\\e[4m\1/' | \
+  # private addresses are not \
+  sed 's/m\(\(10\.\|172\.\(1[6-9]\|2[0-9]\|3[01]\)\|192\.168\.\).*\)/m\\\e[24m\1/' | \
+  # unknown interfaces are cyan \
+  sed 's/^\( *[^ ]\+\)/\\\e[36m\1/' | \
+  # ethernet interfaces are normal \
+  sed 's/\(\(en\|em\|eth\)[^ ]* .*\)/\\\e[39m\1/' | \
+  # wireless interfaces are purple \
+  sed 's/\(wl[^ ]* .*\)/\\\e[35m\1/' | \
+  # wwan interfaces are yellow \
+  sed 's/\(ww[^ ]* .*\).*/\\\e[33m\1/' | \
+  sed 's/$/\\\e[0m/' | \
+  sed 's/^/\t/' \
+  )
+  echo
+  set_color normal
 end
