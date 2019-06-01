@@ -24,7 +24,7 @@ sudo apt-get install -y clang-5.0 cmake
 sudo apt-get install -y musl-tools numactl gdb
 
 
-if [ -e $HOME/cargo/ ]; then
+if [ -e $HOME/.cargo/ ]; then
 	# setup rust
 	curl https://sh.rustup.rs -sSf | sh  # Install rustup
 	rustup default nightly
