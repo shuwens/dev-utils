@@ -9,7 +9,7 @@ sudo apt-get update
 sudo apt-get install -y git curl libssl-dev pkg-config #dpdk-igb-uio-dkms
 
 # make my life easy
-sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark
+sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark fish
 
 # install ubuntu deps
 sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev libpcap-dev  libsctp-dev gcc
