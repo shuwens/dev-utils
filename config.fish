@@ -10,6 +10,8 @@ abbr -a ct 'cargo t'
 # special stuff
 abbr -a Ef 'nvim ~/.config/fish/config.fish'
 abbr -a Ev 'nvim ~/.config/nvim/init.vim'
+abbr -a pull "git pull"
+abbr -a push "git push"
 abbr -a gs "git status"
 abbr -a gits "git status"
 abbr -a gl "git log --graph --decorate --oneline"
