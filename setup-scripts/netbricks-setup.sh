@@ -9,7 +9,7 @@ sudo apt-get update
 sudo apt-get install -y git curl libssl-dev pkg-config #dpdk-igb-uio-dkms
 
 # make my life easy
-sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark
+sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark fish
 
 # install ubuntu deps
 sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev libpcap-dev  libsctp-dev gcc
@@ -24,13 +24,12 @@ sudo apt-get install -y clang-5.0 cmake
 sudo apt-get install -y musl-tools numactl gdb
 
 
-if [ -e $HOME/cargo/ ]; then
+if [ -e $HOME/.cargo/ ]; then
+	echo "Passing, Rust already exists.."
+else
 	# setup rust
 	curl https://sh.rustup.rs -sSf | sh  # Install rustup
 	rustup default nightly
-else
-	echo "Passing, Rust already exists.."
-
 fi
 
 source $HOME/.cargo/env
