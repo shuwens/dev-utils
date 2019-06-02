@@ -35,7 +35,6 @@ function lazy
   end
 end
 
-
 # fzf
 set PATH $PATH $HOME/.fzf/bin
 setenv FZF_DEFAULT_OPTS '--height 20%'
