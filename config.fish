@@ -23,6 +23,8 @@ abbr -a cnet "git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netb
 abbr -a n "cd ~/dev/netbricks/"
 abbr -a pg "cd ~/dev/pktgen-dpdk/"
 abbr -a c "command $HOME/dev/netbricks/build.sh"
+abbr -a r "sudo ./run.sh"
+abbr -a p "sudo ./prun.sh"
 
 # for git journal, I should only use ["Added", "Changed", "Fixed", "Improved", "Removed"]
 function lazy
@@ -125,6 +127,9 @@ else
   abbr -a ll 'ls -l'
   abbr -a lll 'ls -la'
 end
+
+
+alias sduo sudo
 
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
