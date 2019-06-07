@@ -25,6 +25,7 @@ abbr -a pg "cd ~/dev/pktgen-dpdk/"
 abbr -a c "command $HOME/dev/netbricks/build.sh"
 abbr -a r "sudo ./run.sh"
 abbr -a p "sudo ./prun.sh"
+abbr -a o "vim -u NONE output.out"
 
 # for git journal, I should only use ["Added", "Changed", "Fixed", "Improved", "Removed"]
 function lazy
