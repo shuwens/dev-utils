@@ -36,8 +36,8 @@ source $HOME/.cargo/env
 rustup install nightly
 rustup default nightly
 
-rustup component add rls rust-analysis rust-src
-rustup component add rustfmt clippy
+rustup component add rust-src rustfmt
+rustup component add clippy rls rust-analysis
 
 cargo install --force cargo-tree cargo-readme
 cargo install --force --git https://github.com/kbknapp/cargo-outdated

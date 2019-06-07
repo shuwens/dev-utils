@@ -8,7 +8,8 @@ curl -sL install-node.now.sh/lts | sudo bash
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 pip install neovim
-pip3 install neovim
+#pip3 install neovim
+python3 -m pip install neovim
 
 mkdir -p ~/.config && cd ~/.config && git clone  https://github.com/jethrosun/yavc.git -b neovim nvim
 
