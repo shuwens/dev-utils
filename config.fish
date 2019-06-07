@@ -40,6 +40,13 @@ function lazy
   end
 end
 
+# fix thje remote display? https://github.com/joashc/dotfiles/blob/28ba5ed46a7dc9f40e4db192a8e566e1ecbb204e/fish/config.fish
+if status --is-login
+    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+        exec startx -- -keeptty
+    end
+end
+
 # fzf
 set PATH $PATH $HOME/.fzf/bin
 setenv FZF_DEFAULT_OPTS '--height 20%'
