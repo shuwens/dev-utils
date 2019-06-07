@@ -63,51 +63,6 @@ function fish_user_key_bindings
   end
 end
 
-# if test -e ~/data/cargo-target
-#     setenv CARGO_TARGET_DIR ~/data/cargo-target
-# end
-#
-# # source the devstack xxx file if I am in a devstack
-# if [ -e /opt/stack/devstack/openrc ]; then
-#   echo -e "\e[37mbtw: enabling __Devstack__ from the default location...\e[0m";
-#   source /opt/stack/devstack/openrc
-# fi
-#
-# export LD_LIBRARY_PATH=/usr/local/lib
-#
-# # NetBricks Env
-# #if [ -e $HOME/dev/netbricks/native ]; then
-# #echo -e "\e[37mbtw: enabling __libzcsi__ from the default location...\e[0m";
-# #export LD_LIBRARY_PATH=/usr/local/lib:~/dev/netbricks/native
-# #fi
-#
-# # OpenNetVM Env
-# if [ -e /home/jethros/dev/openNetVM ]; then
-#   if [[ "$OPEN_NET_VM" ]]; then
-#     echo -e "\e[37mbtw: enabling __OpenNetVM__ as configured...\e[0m";
-#     export ONVM_HOME=/home/jethros/dev/openNetVM
-#     export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
-#     export RTE_TARGET=x86_64-native-linuxapp-gcc
-#     export ONVM_NUM_HUGEPAGES=10
-#     export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
-#   fi
-# fi
-#
-# # just to make my life easier..
-# if [ -e ~/dev/netbricks/ ]; then
-#   echo -e "\e[37mbtw: aliasing net, netd, lpm, chain, op, opd, pg, cnet, recon...\e[0m";
-#   alias net="cd ~/dev/netbricks/"
-#   alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
-#   alias lpm="cd ~/dev/netbricks/test/lpm/"
-#   alias chain="cd ~/dev/netbricks/test/chain-test/"
-#   alias op="cd ~/dev/openNetVM/"
-#   alias opd="cd ~/dev/openNetVM/dpdk/examples"
-#   alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
-# fi
-#
-
-
-
 complete --command aurman --wraps pacman
 
 if command -v aurman > /dev/null
