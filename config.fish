@@ -10,11 +10,12 @@ abbr -a ct 'cargo t'
 # special stuff
 abbr -a Ef 'nvim ~/.config/fish/config.fish'
 abbr -a Ev 'nvim ~/.config/nvim/init.vim'
+abbr -a Eb 'nvim ~/dev/netbricks/build.sh'
 abbr -a pull "git pull"
 abbr -a push "git push"
 abbr -a gs "git status"
 abbr -a gits "git status"
-#abbr -a gl "git log --graph --decorate --oneline"
+abbr -a gll "git log --graph --decorate --oneline"
 abbr -a gl "git lg1"
 abbr -a gc 'git clone'
 abbr -a cc "checkout -- ."
@@ -26,7 +27,7 @@ abbr -a pg "cd ~/dev/pktgen-dpdk/"
 abbr -a c "command $HOME/dev/netbricks/build.sh"
 abbr -a r "sudo ./run.sh"
 abbr -a p "sudo ./prun.sh"
-abbr -a o "vim -u NONE output.out"
+abbr -a o "vim -u NONE"
 abbr -a ag "ag --rust"
 
 # for git journal, I should only use ["Added", "Changed", "Fixed", "Improved", "Removed"]
