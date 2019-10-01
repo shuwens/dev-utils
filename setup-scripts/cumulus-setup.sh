@@ -2,11 +2,16 @@
 
 # install necessary packages
 sudo apt -y update
-sudo apt -y install apache2 protobuf
+sudo apt -y install apache2
+
+# setup protobuf
+sudo apt update
+sudo apt install snapd
+sudo snap install protobuf --classic
 
 # cumulus
 mkdir -p ~/dev/
 cd ~/dev
-git clone git@github.com:jethrosun/dev-utils.git -b cumulus
+git clone https://github.com/ravinet/mahimahi.git -b cumulus
 
 
