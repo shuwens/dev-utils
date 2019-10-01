@@ -272,7 +272,12 @@ if [ -e ~/.pyenv/ ]; then
   fi
 fi
 
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PROTOBUF=/snap/protobuf/current
+export PROTOC="$PROTOBUF/bin/protoc"
+export PROTOBUF_LIBS="-L$PROTOBUF/lib -lprotobuf -D_THREAD_SAFE"
+export PROTOBUF_CFLAGS="-I$PROTOBUF/include -D_THREAD_SAFE" 
+
 echo
 # end of [.bashrc]
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

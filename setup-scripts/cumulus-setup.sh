@@ -2,7 +2,7 @@
 
 # install necessary packages
 sudo apt -y update
-sudo apt -y install apache2 automake
+sudo apt -y install apache2 automake g++ phantomjs
 
 # setup protobuf
 sudo apt -y update
@@ -15,3 +15,6 @@ cd ~/dev
 git clone https://github.com/ravinet/mahimahi.git -b cumulus
 
 
+./autogen.sh
+./configure
+make
