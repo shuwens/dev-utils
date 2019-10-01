@@ -5,9 +5,9 @@ sudo apt -y update
 sudo apt -y install apache2 automake g++ phantomjs protobuf-compiler
 
 # setup protobuf
-sudo apt -y update
-sudo apt -y install snapd
-sudo snap install protobuf --classic
+# sudo apt -y update
+# sudo apt -y install snapd
+# sudo snap install protobuf --classic
 
 # cumulus
 mkdir -p ~/dev/
