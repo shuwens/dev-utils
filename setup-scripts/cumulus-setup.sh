@@ -2,11 +2,11 @@
 
 # install necessary packages
 sudo apt -y update
-sudo apt -y install apache2
+sudo apt -y install apache2 automake
 
 # setup protobuf
-sudo apt update
-sudo apt install snapd
+sudo apt -y update
+sudo apt -y install snapd
 sudo snap install protobuf --classic
 
 # cumulus
