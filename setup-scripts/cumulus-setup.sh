@@ -3,6 +3,7 @@
 # install necessary packages
 sudo apt -y update
 sudo apt -y install apache2 automake g++ phantomjs protobuf-compiler pkg-config
+sudo apt-get -y install libprotobuf-c-dev libprotobuf-c1 libprotoc-dev
 
 # setup protobuf
 # sudo apt -y update
