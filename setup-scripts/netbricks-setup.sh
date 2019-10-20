@@ -23,6 +23,8 @@ sudo apt-get install -y clang-5.0 cmake
 # musl
 sudo apt-get install -y musl-tools numactl gdb
 
+## for transmission: libcurl-dev?
+sudo apt install -y libclang-dev libopenssl-dev  libevent-dev
 
 if [ -e $HOME/.cargo/ ]; then
 	echo "Passing, Rust already exists.."
