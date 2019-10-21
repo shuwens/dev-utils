@@ -126,6 +126,8 @@ setenv LESS "-F -X -R"
 
 set PATH $PATH ~/.cargo/bin
 set PATH $PATH /snap/bin
+set PATH $PATH ~/.local/share/umake/bin
+
 
 # Fish should not add things to clipboard when killing
 # See https://github.com/fish-shell/fish-shell/issues/772
