@@ -15,8 +15,8 @@ sudo apt-get install -y git curl libssl-dev pkg-config #dpdk-igb-uio-dkms
 sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev libpcap-dev  libsctp-dev gcc
 # install kernel headers
 sudo apt-get install -y linux-headers-$(uname -r)
-# install clang 5.0 and cmake
-sudo apt-get install -y clang-5.0 cmake
+# install clang 6.0 and cmake
+sudo apt-get install -y clang-6.0 cmake
 
 # musl
 sudo apt-get install -y musl-tools numactl gdb
