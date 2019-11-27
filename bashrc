@@ -281,3 +281,5 @@ export PROTOBUF_CFLAGS="-I$PROTOBUF/include -D_THREAD_SAFE"
 
 echo
 # end of [.bashrc]
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
