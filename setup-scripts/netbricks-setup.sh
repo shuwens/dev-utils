@@ -4,6 +4,7 @@ set -e
 
 # Update first
 sudo apt-get update
+sudo apt-get autoremove -y
 
 # Necessary tools to make my life easier
 sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark fish
@@ -15,8 +16,12 @@ sudo apt-get install -y git curl libssl-dev pkg-config #dpdk-igb-uio-dkms
 sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev libpcap-dev  libsctp-dev gcc
 # install kernel headers
 sudo apt-get install -y linux-headers-$(uname -r)
-# install clang 6.0 and cmake
-sudo apt-get install -y clang-6.0 cmake
+# install clang with correct version and cmake
+sudo apt-get install -y apt-utils build-essential pciutils linux-headers-`uname -r` python python3 libssl-dev
+sudo apt-get install -y libgnutls30 libcurl4-gnutls-dev cmake bash libpcap-dev libnuma-dev llvm libelf-dev
+sudo apt-get install -y libssl-dev pkg-config libgnutls-openssl-dev libcurl4-gnutls-dev libsctp-dev gcc
+sudo apt-get install -y clang-6.0 cmake musl-tools libssl-dev libevent-dev
+
 
 # musl
 sudo apt-get install -y musl-tools numactl gdb
