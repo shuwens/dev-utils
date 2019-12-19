@@ -33,6 +33,7 @@ abbr -a ag "ag --rust"
 # for git journal, I should only use ["Added", "Changed", "Fixed", "Improved", "Removed"]
 function lazy
   if test "$argv"
+    git diff
     git add -A
     git commit -m "$argv"
     git push
