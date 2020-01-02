@@ -37,36 +37,15 @@ fi
 ## I largely use this for remote server
 export TERM=xterm
 
-# Style with solarized
-if [[ -e $HOME/dev/others/base16/builder/templates/shell ]]; then
-  source "$HOME/dev/others/base16/builder/templates/shell/scripts/base16-atelier-dune.sh"
-else
-  if [[ "$TERM" == "linux" ]]; then
-    echo -en "\e]P0002b36\e]P1dc322f\e]P2859900\e]P3b58900\e]P4268bd2\e]P5d33682\e]P62aa198\e]P7eee8d5\e]P9cb4b16\e]P8002b36\e]PA586e75\e]PB657b83\e]PC839496\e]PD6c71c4\e]PE93a1a1\e]PFfdf6e3"
-    echo -e '\e[37mbtw: base16 shell style not available, emulating solarized\e[0m';
-  else
-    echo -e '\e[37mbtw: base16 shell style not available\e[0m';
-  fi
-fi
-
-if [[ $faking == "nounicode" ]]; then
-  echo -e '\e[37mbtw: rxvt-unicode not supported, faking rxvt...\e[0m';
-elif [[ $faking == "vt100" ]]; then
-  echo -e '\e[37mbtw: rxvt not supported, faking vt100...\e[0m';
-fi
-
 # Be nice to sysadmins
 if [ -f /etc/bashrc ]; then
-  echo -e '\e[37mbtw: merging master bashrc...\e[0m';
   source /etc/bashrc
 elif [ -f /etc/bash.bashrc ]; then
-  echo -e '\e[37mbtw: merging master bash.bashrc...\e[0m';
   source /etc/bash.bashrc
 fi
 
 # And to users who like to tweak
 if [ -e "$HOME/.local/bashrc" ]; then
-  echo -e '\e[37mbtw: merging local bashrc...\e[0m';
   source "$HOME/.local/bashrc"
 fi
 
@@ -79,60 +58,6 @@ if [[ ! -z `pgrep weston` ]]; then
 fi
 
 [[ $- != *i* ]] && return;
-
-
-PS1='\[\e[37m\][\A] \[\e[0;33m\]\u\[\e[0m\]@\[\e[35m\]\h \[\e[32m\]\w'
-
-# Prompt
-if [ -e /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-  source /usr/share/git-core/contrib/completion/git-prompt.sh
-  # For unstaged(*) and staged(+) values next to branch name in __git_ps1
-  GIT_PS1_SHOWDIRTYSTATE="enabled"
-  GIT_PS1_SHOWUNTRACKEDFILES="enabled"
-  PS1=$PS1'\[\e[35m\]`__git_ps1`'
-  echo -e "\e[37mbtw: enabling git completion in prompt...\e[0m";
-elif [ -e $HOME/.git-prompt.sh ]; then
-  source $HOME/.git-prompt.sh
-  # For unstaged(*) and staged(+) values next to branch name in __git_ps1
-  GIT_PS1_SHOWDIRTYSTATE="enabled"
-  GIT_PS1_SHOWUNTRACKEDFILES="enabled"
-  PS1=$PS1'\[\e[35m\]`__git_ps1`'
-  echo -e "\e[37mbtw: enabling git completion in prompt...\e[0m";
-else
-  wget -O ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-  source $HOME/.git-prompt.sh
-  # For unstaged(*) and staged(+) values next to branch name in __git_ps1
-  GIT_PS1_SHOWDIRTYSTATE="enabled"
-  GIT_PS1_SHOWUNTRACKEDFILES="enabled"
-  PS1=$PS1'\[\e[35m\]`__git_ps1`'
-  echo -e "\e[37mbtw: enabling git completion in prompt (troublesome)...\e[0m";
-fi
-
-PS1=$PS1' \[\e[31m\]\$\[\e[0m\] '
-
-# Prompt command (for SSH window titles)
-if [ ! "$TERM" = "linux" ]; then
-  export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-fi
-
-# Solarized ls
-if [ -e $HOME/.dircolors ]; then
-  echo -e '\e[37mbtw: dircolors is available, yeehoo...\e[0m';
-  eval "$(dircolors -b $HOME/.dircolors)"
-else
-  echo -e '\e[37mbtw: no dircolors available...\e[0m';
-fi
-
-# colored man output
-# from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-alias man='man -P less'
 
 # Don't autocomplete to hidden directories
 bind 'set match-hidden-files off'
@@ -226,7 +151,6 @@ function cdd {
 
 # source the devstack xxx file if I am in a devstack
 if [ -e /opt/stack/devstack/openrc ]; then
-  echo -e "\e[37mbtw: enabling __Devstack__ from the default location...\e[0m";
   source /opt/stack/devstack/openrc
 fi
 
@@ -241,7 +165,6 @@ export LD_LIBRARY_PATH=/usr/local/lib
 # OpenNetVM Env
 if [ -e /home/jethros/dev/openNetVM ]; then
   if [[ "$OPEN_NET_VM" ]]; then
-    echo -e "\e[37mbtw: enabling __OpenNetVM__ as configured...\e[0m";
     export ONVM_HOME=/home/jethros/dev/openNetVM
     export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
     export RTE_TARGET=x86_64-native-linuxapp-gcc
@@ -252,7 +175,6 @@ fi
 
 # just to make my life easier..
 if [ -e ~/dev/netbricks/ ]; then
-  echo -e "\e[37mbtw: aliasing net, netd, lpm, chain, op, opd, pg, cnet, recon...\e[0m";
   alias net="cd ~/dev/netbricks/"
   alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
   alias lpm="cd ~/dev/netbricks/test/lpm/"
@@ -264,7 +186,6 @@ if [ -e ~/dev/netbricks/ ]; then
 fi
 
 if [ -e ~/.pyenv/ ]; then
-  echo -e "\e[37mbtw: enabling __pyenv___...\e[0m";
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   if command -v pyenv 1>/dev/null 2>&1; then

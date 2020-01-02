@@ -130,8 +130,7 @@ set PATH $PATH /snap/bin
 set PATH $PATH ~/bin
 set PATH $PATH ~/.local/share/umake/bin
 
-
-
+setenv PKG_CONFIG_PATH /usr/lib/pkgconfig
 
 # Fish should not add things to clipboard when killing
 # See https://github.com/fish-shell/fish-shell/issues/772
