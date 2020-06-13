@@ -4,7 +4,8 @@ set -ex
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 
-sudo apt-get install -y python-virtualenv python3-dev python3 python3-venv python3-pip neovim
+# python-virtualenv
+sudo apt-get install -y python3-dev python3 python3-venv python3-pip neovim
 
 curl -sL install-node.now.sh/lts | sudo bash
 # Optional install yarn if you want install extension by CocInstall command
