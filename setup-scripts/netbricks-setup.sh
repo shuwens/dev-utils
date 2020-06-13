@@ -34,5 +34,5 @@ if [ -e $HOME/dev/netbricks ]; then
 	echo "Passing, netbricks exists.."
 else
 	# git repo
-	mkdir -p ~/dev && cd ~/dev && git clone https://github.com/jethrosun/NetBricks.git -b dev netbricks
+	mkdir -p ~/dev && cd ~/dev && git clone https://github.com/jethrosun/NetBricks.git -b expr netbricks
 fi
