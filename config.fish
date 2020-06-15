@@ -21,7 +21,7 @@ abbr -a gc 'git clone'
 abbr -a cc "checkout -- ."
 abbr -a gs 'git status -s'
 abbr -a ca 'git commit -a -m'
-abbr -a cnet "git clone git@github.com:jethrosun/NetBricks.git -b expr ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
+abbr -a cnet "rm -rf ~/dev/netbricks; git clone https://github.com/jethrosun/NetBricks.git -b expr ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
 abbr -a n "cd ~/dev/netbricks/"
 abbr -a pg "cd ~/dev/pktgen-dpdk/"
 abbr -a c "command $HOME/dev/netbricks/build.sh"
