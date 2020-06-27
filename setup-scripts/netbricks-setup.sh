@@ -6,6 +6,10 @@ set -e
 sudo apt-get update
 sudo apt-get autoremove -y
 
+# perf tunning stuff
+sudo apt-get install -y  msr-tools linux-tools-generic
+
+
 # Necessary tools to make my life easier
 sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark fish
 
