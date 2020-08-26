@@ -12,7 +12,8 @@ if [ -e $HOME/.cargo/ ]; then
 	rustup default nightly
 else
 	# setup rust
-	curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --default-toolchain=nightly
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+	rustup toolchain install nightly --allow-downgrade --profile minimal --component clippy
 	source $HOME/.cargo/env
 fi
 
