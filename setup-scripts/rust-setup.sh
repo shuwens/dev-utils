@@ -12,8 +12,7 @@ if [ -e $HOME/.cargo/ ]; then
 	rustup default nightly
 else
 	# setup rust
-	curl https://sh.rustup.rs -sSf | sh  # Install rustup
-	rustup default nightly
+	curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- --default-toolchain=nightly
 	source $HOME/.cargo/env
 fi
 
