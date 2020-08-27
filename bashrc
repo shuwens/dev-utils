@@ -7,9 +7,9 @@ export EDITOR=vim
 
 # Rust
 if [[ -e $HOME/.cargo ]]; then
-  source "$HOME/.cargo/env"
-  echo -e '\e[37mbtw: Rust available so enable implicitly\e[0m';
-  export RUST_BACKTRACE=1
+	source "$HOME/.cargo/env"
+	echo -e '\e[37mbtw: Rust available so enable implicitly\e[0m';
+	export RUST_BACKTRACE=1
 fi
 
 # LLVM
@@ -18,20 +18,20 @@ fi
 
 # If not running interactively, don't do anything
 if [[ $- != *i* ]]; then
-  # non-interactive
-  alias echo=/bin/false
+	# non-interactive
+	alias echo=/bin/false
 fi
 
 # Make sure terminal is recognized
 faking="no"
 if [[ "$TERM" == "rxvt-unicode-256color" && ! -e "/usr/share/terminfo/r/$TERM" ]]; then
-  if [ -e "/usr/share/terminfo/r/rxvt-256color" ]; then
-    faking="nounicode"
-    export TERM='rxvt-256color';
-  else
-    faking="vt100"
-    export TERM='vt100';
-  fi
+	if [ -e "/usr/share/terminfo/r/rxvt-256color" ]; then
+		faking="nounicode"
+		export TERM='rxvt-256color';
+	else
+		faking="vt100"
+		export TERM='vt100';
+	fi
 fi
 
 ## I largely use this for remote server
@@ -39,22 +39,22 @@ export TERM=xterm
 
 # Be nice to sysadmins
 if [ -f /etc/bashrc ]; then
-  source /etc/bashrc
+	source /etc/bashrc
 elif [ -f /etc/bash.bashrc ]; then
-  source /etc/bash.bashrc
+	source /etc/bash.bashrc
 fi
 
 # And to users who like to tweak
 if [ -e "$HOME/.local/bashrc" ]; then
-  source "$HOME/.local/bashrc"
+	source "$HOME/.local/bashrc"
 fi
 
 # Weston needs some custom vars
 if [[ ! -z `pgrep weston` ]]; then
-  export GDK_BACKEND="wayland"
-  export CLUTTER_BACKEND="wayland"
-  export SDL_VIDEODRIVER="wayland"
-  export QT_QPA_PLATFORM="wayland-egl"
+	export GDK_BACKEND="wayland"
+	export CLUTTER_BACKEND="wayland"
+	export SDL_VIDEODRIVER="wayland"
+	export QT_QPA_PLATFORM="wayland-egl"
 fi
 
 [[ $- != *i* ]] && return;
@@ -65,7 +65,7 @@ bind 'set match-hidden-files off'
 # Make working with Java a bit easier
 export CLASSPATH="$CLASSPATH:."
 if [ -e /usr/share/java ]; then
-  export CLASSPATH="$CLASSPATH:/usr/share/java"
+	export CLASSPATH="$CLASSPATH:/usr/share/java"
 fi
 
 # History management
@@ -127,31 +127,31 @@ alias cnet="git clone git@github.com:jethrosun/NetBricks.git -b dev ~/dev/netbri
 
 # use nvim if I set it up
 if type nvim >/dev/null 2>/dev/null; then
-  alias vi=nvim
-  alias vim=nvim
-  export EDITOR=nvim
+	alias vi=nvim
+	alias vim=nvim
+	export EDITOR=nvim
 fi
 
 # Type - to move up to top parent dir which is a repository
 function - {
 local p=""
 for f in `pwd | tr '/' ' '`; do
-  p="$p/$f"
-  if [ -e "$p/.git" ]; then
-    cd "$p"
-    break
-  fi
+	p="$p/$f"
+	if [ -e "$p/.git" ]; then
+		cd "$p"
+		break
+	fi
 done
 }
 
 # Replace part of current path and cd to it
 function cdd {
-  cd `pwd | sed "s/$1/$2/"`
+	cd `pwd | sed "s/$1/$2/"`
 }
 
 # source the devstack xxx file if I am in a devstack
 if [ -e /opt/stack/devstack/openrc ]; then
-  source /opt/stack/devstack/openrc
+	source /opt/stack/devstack/openrc
 fi
 
 export LD_LIBRARY_PATH=/usr/local/lib
@@ -164,33 +164,35 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 # OpenNetVM Env
 if [ -e /home/jethros/dev/openNetVM ]; then
-  if [[ "$OPEN_NET_VM" ]]; then
-    export ONVM_HOME=/home/jethros/dev/openNetVM
-    export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
-    export RTE_TARGET=x86_64-native-linuxapp-gcc
-    export ONVM_NUM_HUGEPAGES=10
-    export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
-  fi
+	if [[ "$OPEN_NET_VM" ]]; then
+		export ONVM_HOME=/home/jethros/dev/openNetVM
+		export RTE_SDK=/home/jethros/dev/openNetVM/dpdk
+		export RTE_TARGET=x86_64-native-linuxapp-gcc
+		export ONVM_NUM_HUGEPAGES=10
+		export ONVM_NIC_PCI=" 01:00.0 01:00.1 "
+	fi
 fi
 
 # just to make my life easier..
 if [ -e ~/dev/netbricks/ ]; then
-  alias net="cd ~/dev/netbricks/"
-  alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
-  alias lpm="cd ~/dev/netbricks/test/lpm/"
-  alias chain="cd ~/dev/netbricks/test/chain-test/"
-  alias op="cd ~/dev/openNetVM/"
-  alias opd="cd ~/dev/openNetVM/dpdk/examples"
-  alias pg="cd ~/dev/pktgen-dpdk/"
-  alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
+	alias net="cd ~/dev/netbricks/"
+	alias netd="cd ~/dev/netbricks/3rdparty/dpdk/examples"
+	alias lpm="cd ~/dev/netbricks/test/lpm/"
+	alias chain="cd ~/dev/netbricks/test/chain-test/"
+	alias op="cd ~/dev/openNetVM/"
+	alias opd="cd ~/dev/openNetVM/dpdk/examples"
+	alias pg="cd ~/dev/pktgen-dpdk/"
+	alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
+
+	alias tl="transmission-remote -n 'transmission:mypassword' -l"
 fi
 
 if [ -e ~/.pyenv/ ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-  fi
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	if command -v pyenv 1>/dev/null 2>&1; then
+		eval "$(pyenv init -)"
+	fi
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
