@@ -31,6 +31,18 @@ abbr -a o "vim -u NONE"
 abbr -a agr "ag --rust"
 abbr -a tl "transmission-remote -n 'transmission:mypassword' -l"
 
+# for git journal, I should only use ["Added", "Changed", "Fixed", "Improved", "Removed"]
+function lazy
+  if test "$argv"
+    git diff
+    git add -A
+    git commit -m "$argv"
+    git push
+  else
+    git r
+  end
+end
+
 # fzf
 set PATH $PATH $HOME/.fzf/bin
 setenv FZF_DEFAULT_OPTS '--height 20%'

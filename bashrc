@@ -206,3 +206,6 @@ echo
 # end of [.bashrc]
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.6/site-packages/
+
