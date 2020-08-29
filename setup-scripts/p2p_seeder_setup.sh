@@ -13,6 +13,7 @@ sudo cp  /var/lib/transmission-daemon/info/settings.json  /var/lib/transmission-
 #
 # https://www.cyberciti.biz/faq/howto-create-lage-files-with-dd-command/
 # https://superuser.com/questions/470949/how-do-i-create-a-1gb-random-file-in-linux
+rm -rf ~/data
 mkdir -p ~/data
 cd ~/data
 
