@@ -17,7 +17,7 @@ rm -rf ~/data
 mkdir -p ~/data
 cd ~/data
 
-for i in {1..5}
+for i in {1..10}
 do
 	echo "Welcome $i times"
 	fallocate -l 1G p2p_image_${i}.img
