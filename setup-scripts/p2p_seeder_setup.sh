@@ -41,3 +41,5 @@ done
 cp ~/torrents/* ~/dev/pvn/utils/workloads/torrent_files
 
 sudo chown debian-transmission.debian-transmission /home/jethros/data
+
+# https://www.cnx-software.com/2012/06/08/how-to-create-and-seed-a-torrent-in-ubuntu-using-transmission-command-line/
