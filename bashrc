@@ -184,7 +184,13 @@ if [ -e ~/dev/netbricks/ ]; then
 	alias pg="cd ~/dev/pktgen-dpdk/"
 	alias recon="cd ~/dev/netbricks/test/tcp-reconstruction"
 
-	alias tl="transmission-remote -n 'transmission:mypassword' -l"
+	alias t-start='sudo service transmission-daemon start'
+	alias t-stop='sudo service transmission-daemon stop'
+	alias t-reload='sudo service transmission-daemon reload'
+	alias t-list='transmission-remote -n 'transmission:transmission' -l'
+	alias t-basicstats='transmission-remote -n 'transmission:transmission' -st'
+	alias t-fullstats='transmission-remote -n 'transmission:transmission' -si'
+	alias tl="transmission-remote -n 'transmission:transmission' -l"
 fi
 
 if [ -e ~/.pyenv/ ]; then

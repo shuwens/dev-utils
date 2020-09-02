@@ -30,6 +30,13 @@ abbr -a p "sudo ./prun.sh"
 abbr -a o "vim -u NONE"
 abbr -a agr "ag --rust"
 abbr -a tl "transmission-remote -n 'transmission:mypassword' -l"
+abbr -a  t-start='sudo service transmission-daemon start'
+abbr -a  t-stop='sudo service transmission-daemon stop'
+abbr -a  t-reload='sudo service transmission-daemon reload'
+abbr -a  t-list='transmission-remote -n 'transmission:transmission' -l'
+abbr -a  t-basicstats='transmission-remote -n 'transmission:transmission' -st'
+abbr -a  t-fullstats='transmission-remote -n 'transmission:transmission' -si'
+
 
 # for git journal, I should only use ["Added", "Changed", "Fixed", "Improved", "Removed"]
 function lazy
@@ -47,7 +54,7 @@ end
 set PATH $PATH $HOME/.fzf/bin
 setenv FZF_DEFAULT_OPTS '--height 20%'
 
-[ -f ~/.config/fish/functions/aliases.fish ]; and source ~/.config/fish/functions/aliases.fish
+[ -f ~/.config/fish/functions/abbr -a es.fish ]; and source ~/.config/fish/functions/abbr -a es.fish
 
 if [ -e $HOME/.fzf/shell/key-bindings.fish ]
     and status --is-interactive
@@ -80,7 +87,7 @@ else
     abbr -a lll 'ls -la'
 end
 
-alias sduo sudo
+abbr -a  sduo sudo
 
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
@@ -134,7 +141,7 @@ set red (set_color red)
 set gray (set_color -o black)
 
 
-function j -d "Autojump alias" -w "autojump"
+function j -d "Autojump abbr -a " -w "autojump"
   cd (env AUTOJUMP_SOURCED=1 autojump $argv)
 end
 
