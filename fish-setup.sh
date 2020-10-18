@@ -1,4 +1,6 @@
 #!/bin/bash
+
+sudo apt update -y
 sudo apt install fish -y
 
 mkdir -p ~/.config/fish
