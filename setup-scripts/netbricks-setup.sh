@@ -26,6 +26,8 @@ sudo apt-get install -y libgnutls30 libcurl4-gnutls-dev cmake bash libpcap-dev l
 sudo apt-get install -y libssl-dev pkg-config libgnutls-openssl-dev libcurl4-gnutls-dev libsctp-dev gcc
 sudo apt-get install -y clang-6.0 cmake musl-tools libssl-dev libevent-dev
 
+# rdr browser
+sudo apt-get install -y chromedriver
 
 # musl
 sudo apt-get install -y musl-tools numactl gdb
