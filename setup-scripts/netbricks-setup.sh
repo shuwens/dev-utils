@@ -27,7 +27,7 @@ sudo apt-get install -y libssl-dev pkg-config libgnutls-openssl-dev libcurl4-gnu
 sudo apt-get install -y clang-6.0 cmake musl-tools libssl-dev libevent-dev
 
 # rdr browser
-sudo apt-get install -y chromedriver
+sudo apt-get install -y chromium-chromedriver
 
 # musl
 sudo apt-get install -y musl-tools numactl gdb
