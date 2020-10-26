@@ -119,7 +119,6 @@ setenv LESS "-F -X -R"
 set PATH $PATH ~/.cargo/bin
 set PATH $PATH /snap/bin
 set PATH $PATH ~/bin
-set PATH $PATH ~/.local/share/umake/bin
 
 # Add pyenv, if available
 if test -d "$HOME/.pyenv"

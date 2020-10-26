@@ -215,3 +215,5 @@ echo
 
 export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.6/site-packages/
 
+# [ -f ~/.venv ] && source ~/.venv/bin/activate
+source ~/.venv/bin/activate

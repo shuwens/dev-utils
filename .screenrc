@@ -2,6 +2,7 @@
 "" Screen setting
 """"""""""""""""""""""""""""""""""
 
+startup_message off
 defscrollback 100000
 hardstatus on
 hardstatus alwayslastline
