@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""
 "" Screen setting
 """"""""""""""""""""""""""""""""""
+startup_message off
 
 startup_message off
 defscrollback 100000
