@@ -19,9 +19,9 @@ sudo apt-get install -y git curl libssl-dev pkg-config #dpdk-igb-uio-dkms
 # install ubuntu deps
 sudo apt-get install -y libgnutls30 libgnutls-openssl-dev libcurl4-gnutls-dev libnuma-dev libpcap-dev  libsctp-dev gcc
 # install kernel headers
-sudo apt-get install -y linux-headers-$(uname -r)
+sudo apt-get install -y linux-headers-"$(uname -r)"
 # install clang with correct version and cmake
-sudo apt-get install -y apt-utils build-essential pciutils linux-headers-`uname -r` python python3 libssl-dev
+sudo apt-get install -y apt-utils build-essential pciutils linux-headers-"$(uname -r)" python python3 libssl-dev
 sudo apt-get install -y libgnutls30 libcurl4-gnutls-dev cmake bash libpcap-dev libnuma-dev llvm libelf-dev
 sudo apt-get install -y libssl-dev pkg-config libgnutls-openssl-dev libcurl4-gnutls-dev libsctp-dev gcc
 sudo apt-get install -y clang-6.0 cmake musl-tools libssl-dev libevent-dev
@@ -39,15 +39,15 @@ sudo apt install -y libclang-dev
 sudo apt install -y jq
 
 # bcc
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4052245BD4284CDD
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4052245BD4284CDD -y
 echo "deb https://repo.iovisor.org/apt/$(lsb_release -cs) $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/iovisor.list
 
 sudo apt-get update
-sudo apt-get install bpfcc-tools linux-headers-$(uname -r)
-sudo apt-get install bcc-tools libbcc-examples linux-headers-$(uname -r)
+sudo apt-get install bpfcc-tools linux-headers-"$(uname -r)" -y
+sudo apt-get install bcc-tools libbcc-examples linux-headers-"$(uname -r)" -y
 
 
-if [ -e $HOME/dev/netbricks ]; then
+if [ -e "$HOME/dev/netbricks" ]; then
 	echo "Passing, netbricks exists.."
 else
 	# git repo
