@@ -21,10 +21,11 @@ fi
 
 # rustup component add clippy rls rust-analysis
 #
-# cargo install --force cargo-tree
-# cargo install --force cargo-tarpaulin
 # cargo install --force cargo-udeps
 # cargo install --force cargo-deny
 # cargo install --force cargo-sweep
 # cargo install --force cargo-readme
-# cargo install --force --git https://github.com/kbknapp/cargo-outdated
+
+cargo install --force cargo-tarpaulin
+cargo install --force cargo-tree
+cargo install --force --git https://github.com/kbknapp/cargo-outdated
