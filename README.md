@@ -6,7 +6,17 @@
 mkdir -p ~/git && cd ~/git && git clone https://github.com/jethrosun/dev-utils.git
 ```
 
+## vagrant disk size
+```
+vagrant plugin install vagrant-disksize
+```
 
+```
+vagrant.configure('2') do |config|
+    config.vm.box = 'ubuntu/xenial64'
+    config.disksize.size = '50GB'
+end
+```
 
 ## old
 To setup Netbricks:
