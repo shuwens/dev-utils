@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt-get update
 
 # python-virtualenv
