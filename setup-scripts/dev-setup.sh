@@ -15,8 +15,8 @@ pip3 install neovim
 #pip3 install neovim
 python3 -m pip install neovim
 
-cd ~/dev/others/rust-analyzer || mkdir -p ~/dev/others && cd ~/dev/others && git clone https://github.com/rust-analyzer/rust-analyzer.git
+cd ~/dev/others/rust-analyzer || (mkdir -p ~/dev/others && cd ~/dev/others && git clone https://github.com/rust-analyzer/rust-analyzer.git)
 cargo xtask install --server
 
-cd ~/.config/nvim || mkdir -p ~/.config && cd ~/.config && git clone  https://github.com/jethrosun/yavc.git  nvim
+cd ~/.config/nvim || (mkdir -p ~/.config && cd ~/.config && git clone  https://github.com/jethrosun/yavc.git  nvim)
 nvim +PlugInstall +PlugClean +PlugUpdate +UpdateRemotePlugins +qall!
