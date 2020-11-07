@@ -13,12 +13,12 @@ if [ -e $HOME/.cargo/ ]; then
 else
 	# setup rust
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-	rustup toolchain install nightly --allow-downgrade --profile minimal --component clippy
+	rustup toolchain install nightly --allow-downgrade --profile minimal --component clippy rust-src rustfmt
 	source $HOME/.cargo/env
 fi
 
 
-rustup component add rust-src rustfmt
+
 # rustup component add clippy rls rust-analysis
 #
 # cargo install --force cargo-tree
