@@ -23,11 +23,11 @@ sudo apt-get install -y ranger bash-completion vim build-essential neovim silver
 # install clang with correct version and cmake
 
 sudo apt-get install -y apt-utils build-essential pciutils linux-headers-"$(uname -r)" python python3
-sudo apt-get install -y cmake musl-tools cmake bash llvm gcc pkg-config libclang-dev
+sudo apt-get install -y cmake musl-tools cmake bash gcc pkg-config libclang-dev
 sudo apt-get install -y libgnutls30 libcurl4-gnutls-dev libpcap-dev libnuma-dev libelf-dev
 sudo apt-get install -y libssl-dev libgnutls-openssl-dev libcurl4-gnutls-dev libsctp-dev libevent-dev
-# FIXME: careful with clang and LLVM, currently only LLVM 3.8 works
-# sudo apt-get install -y clang-6.0
+
+sudo apt-get install -y clang-6.0  # llvm
 
 # rdr browser
 sudo apt-get install -y chromium-chromedriver
