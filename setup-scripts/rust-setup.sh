@@ -26,3 +26,5 @@ cargo install --force cargo-sweep
 cargo install --force cargo-deny
 # cargo install --force cargo-tarpaulin
 cargo install --force --git https://github.com/kbknapp/cargo-outdated
+# cargo install --force cargo-deny
+# cargo install --force cargo-tarpaulin
