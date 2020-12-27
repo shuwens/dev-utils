@@ -2,6 +2,8 @@
 
 set -e
 
+sudo add-apt-repository ppa:transmissionbt/ppa -y
+
 # Update first
 sudo apt-get update
 sudo apt-get autoremove -y
@@ -37,6 +39,7 @@ sudo apt-get install -y musl-tools numactl gdb
 
 ## for transmission: libcurl-dev?
 # sudo apt install -y libssl-dev libevent-dev
+sudo apt-get install transmission-cli transmission-common transmission-daemon
 
 sudo apt install -y jq
 
