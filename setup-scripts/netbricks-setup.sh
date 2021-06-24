@@ -39,7 +39,7 @@ sudo apt-get install -y musl-tools numactl gdb
 
 ## for transmission: libcurl-dev?
 # sudo apt install -y libssl-dev libevent-dev
-sudo apt-get install transmission-cli transmission-common transmission-daemon
+sudo apt-get install -y transmission-cli transmission-common transmission-daemon
 
 sudo apt install -y jq
 
