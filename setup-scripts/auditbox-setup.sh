@@ -17,4 +17,10 @@ cd rust-sgx
 git checkout 1575f9e3b4f2d241267c28fda7a0151b59be48cf
 
 # rust version
+rustup toolchain install nightly-2017-01-26
+rustup default nightly-2017-01-26
 rustup override set nightly-2017-01-26
+
+rustup --version
+rustc --version
+cargo --version
