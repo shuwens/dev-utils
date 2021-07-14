@@ -24,6 +24,13 @@ cat .cargo/config
 # create copy of crates.io, reset back to when rand 0.8.0 didn't
 # exist in index.
 cd ..
+
+
+if [ -e "../crates-io-rewound" ]; then
+  rm -rf ../crates-io-rewound
+else
+  echo "Passing, no Cargo.lock.."
+fi
 git clone https://github.com/rust-lang/crates.io-index.git crates-io-rewound
 cd crates-io-rewound
 
