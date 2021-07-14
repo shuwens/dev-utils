@@ -25,9 +25,8 @@ cat .cargo/config
 # exist in index.
 cd ..
 
-
-if [ -e "../crates-io-rewound" ]; then
-  rm -rf ../crates-io-rewound
+if [ -e "crates-io-rewound" ]; then
+  rm -rf crates-io-rewound
 else
   echo "Passing, no Cargo.lock.."
 fi
