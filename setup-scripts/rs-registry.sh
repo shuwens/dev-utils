@@ -7,7 +7,13 @@ rm -rf $HOME/.cargo/registry
 # https://github.com/mcgoo/vcpkg-rs/pull/29
 # Remove the Cargo.lock file, the checked in version isn't understood
 # at 1.12.0.
-rm Cargo.lock
+
+if [ -e "Cargo.lock" ]; then
+  rm Cargo.lock
+else
+  echo "Passing, no Cargo.lock.."
+fi
+
 # Tell cargo to use a different copy of crates.io.
 mkdir -p .cargo
 cat <<EOF > .cargo/config
