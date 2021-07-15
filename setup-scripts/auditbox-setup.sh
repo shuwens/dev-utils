@@ -7,7 +7,7 @@ cd $HOME/dev
 
 if [ -e "ioctl" ]; then
   rm -rf ioctl
-  rm -rf pkg-config
+  rm -rf pkg-config-rs
   rm -rf rust-openssl
   rm -rf rust-sgx
 else
