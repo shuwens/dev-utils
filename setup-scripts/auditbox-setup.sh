@@ -38,7 +38,7 @@ git clone https://github.com/jethrosun/rust-openssl.git -b safebricks-ver
 # rust sgx
 cd $HOME/dev
 git clone https://github.com/jethrosun/rust-sgx -b safebricks-ver
-cd rust-sgx
+cp $HOME/git/dev-utils/setup-scripts/rs-registry.sh  rust-sgx/sgxs
 
 # rust version
 rustup toolchain install nightly-2017-01-26
