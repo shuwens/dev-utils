@@ -10,6 +10,12 @@ git clone https://github.com/emberian/ioctl.git
 cd ioctl
 git checkout 70b01fe3e530ee4a582d7a1c79c4fc22eb903d97
 
+# pkg-config 0.3.8
+cd $HOME/dev
+git clone https://github.com/rust-lang/pkg-config-rs.git
+cd pkg-config-rs
+git checkout 0.3.8
+
 # rust sgx
 cd $HOME/dev
 git clone https://github.com/jethrosun/rust-sgx -b safebricks-ver
