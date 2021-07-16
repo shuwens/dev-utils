@@ -15,7 +15,6 @@ else
 fi
 
 
-
 # ioctl 0.3.3
 cd $HOME/dev
 git clone https://github.com/emberian/ioctl.git
@@ -28,11 +27,6 @@ cd $HOME/dev
 git clone https://github.com/rust-lang/pkg-config-rs.git
 cd pkg-config-rs
 git checkout 0.3.8
-
-
-# get openssl-sys so we can still use pkg-config 0.3.8
-cd $HOME/dev
-git clone https://github.com/jethrosun/rust-openssl.git -b safebricks-ver
 
 
 # rust sgx
