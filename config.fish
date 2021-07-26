@@ -141,10 +141,6 @@ set red (set_color red)
 set gray (set_color -o black)
 
 
-function j -d "Autojump abbr -a " -w "autojump"
-  cd (env AUTOJUMP_SOURCED=1 autojump $argv)
-end
-
 # Type - to move up to top parent dir which is a repository
 function d
     while test $PWD != "/"
