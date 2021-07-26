@@ -26,11 +26,10 @@ cat .cargo/config
 cd ..
 
 if [ -e "crates-io-rewound" ]; then
-  rm -rf crates-io-rewound
+  echo "Great, we already have a crates io rewound .."
 else
-  echo "Passing, no Cargo.lock.."
+  git clone https://github.com/rust-lang/crates.io-index.git crates-io-rewound
 fi
-git clone https://github.com/rust-lang/crates.io-index.git crates-io-rewound
 cd crates-io-rewound
 
 git reset --hard 46a429eac9f
