@@ -2,16 +2,16 @@
 
 set -e
 
-sudo apt install fshark -y
+sudo apt install fsharp -y
 
 # up-to-date opam
 sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
 # bubblewrap
-wget http://security.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.2.1-1ubuntu0.1_i386.deb
-sudo dpkg -i bubblewrap_0.2.1-1ubuntu0.1_i386.deb
+wget http://security.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
+sudo dpkg -i bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
 sudo apt install -f
 
-opam init 
+opam init
 opam switch create 4.08.0
 
 
@@ -21,7 +21,6 @@ cd $HOME/dev
 if [ -e "ioctl" ]; then
   rm -rf ioctl
   rm -rf pkg-config-rs
-  rm -rf rust-openssl
   rm -rf rust-sgx
 else
   echo "Passing, no Cargo.lock.."
@@ -45,6 +44,7 @@ git checkout 0.3.8
 cd $HOME/dev
 git clone https://github.com/jethrosun/rust-sgx -b safebricks-ver
 cp $HOME/git/dev-utils/setup-scripts/rs-registry.sh  rust-sgx/sgxs
+
 
 # rust version
 rustup toolchain install nightly-2017-01-26
