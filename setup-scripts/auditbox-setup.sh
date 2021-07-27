@@ -2,17 +2,18 @@
 
 set -e
 
-sudo apt install fsharp -y
+sudo apt install fsharp bubblewrap -y
 
 # up-to-date opam
 sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
-# bubblewrap
-wget http://security.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
-sudo dpkg -i bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
-sudo apt install -f
 
-opam init
-opam switch create 4.08.0
+# # bubblewrap
+# wget http://security.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
+# sudo dpkg -i bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
+# sudo apt install -f
+
+# opam init
+# opam switch create 4.08.0
 
 
 mkdir -p $HOME/dev
