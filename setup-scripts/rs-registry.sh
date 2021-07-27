@@ -30,6 +30,6 @@ else
   cd $HOME/dev/others
   git clone https://github.com/rust-lang/crates.io-index.git crates-io-rewound
 fi
-cd crates-io-rewound
+cd $HOME/dev/others/crates-io-rewound
 
 git reset --hard 46a429eac9f
