@@ -18,16 +18,16 @@ fi
 mkdir -p .cargo
 cat <<EOF > .cargo/config
   [source.crates-io]
-  registry = "file://$(pwd)/../crates-io-rewound"
+  registry = "file://$HOME/dev/others/crates-io-rewound"
 EOF
 cat .cargo/config
 # create copy of crates.io, reset back to when rand 0.8.0 didn't
 # exist in index.
-cd ..
-
-if [ -e "crates-io-rewound" ]; then
+if [ -e "$HOME/dev/others/crates-io-rewound" ]; then
   echo "Great, we already have a crates io rewound .."
 else
+  mkdir -p $HOME/dev/others
+  cd $HOME/dev/others
   git clone https://github.com/rust-lang/crates.io-index.git crates-io-rewound
 fi
 cd crates-io-rewound

@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt install fsharp bubblewrap -y
+sudo apt install fsharp bubblewrap zip -y
 
 # up-to-date opam
 sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
@@ -45,6 +45,19 @@ git checkout 0.3.8
 cd $HOME/dev
 git clone https://github.com/jethrosun/rust-sgx -b safebricks-ver
 cp $HOME/git/dev-utils/setup-scripts/rs-registry.sh  rust-sgx/sgxs
+cp $HOME/git/dev-utils/setup-scripts/rs-registry.sh  rust-sgx/libenclave-tools
+
+
+mkdir -p $HOME/dev/others
+cd $HOME/dev/others
+wget https://ftp.gnu.org/gnu/binutils/binutils-2.26.1.tar.gz
+sudo apt install bison -y
+
+# 4.4 kernel
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers-4.4.267-0404267_4.4.267-0404267.202104160747_all.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-image-unsigned-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-modules-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
 
 
 # rust version
