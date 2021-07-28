@@ -2,15 +2,10 @@
 
 set -e
 
-sudo apt install fsharp bubblewrap zip -y
+sudo apt install fsharp bubblewrap zip libssl1.0-dev nodejs -y
 
 # up-to-date opam
 sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
-
-# # bubblewrap
-# wget http://security.ubuntu.com/ubuntu/pool/main/b/bubblewrap/bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
-# sudo dpkg -i bubblewrap_0.2.1-1ubuntu0.1_amd64.deb
-# sudo apt install -f
 
 # opam init
 # opam switch create 4.08.0
@@ -58,7 +53,9 @@ wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers
 wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers-4.4.267-0404267_4.4.267-0404267.202104160747_all.deb
 wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-image-unsigned-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
 wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-modules-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
-
+sudo  dpkg  -i  *.deb
+sudo update-grub
+grep -Ei 'submenu|menuentry ' /boot/grub/grub.cfg | sed -re "s/(.? )'([^']+)'.*/\1 \2/"
 
 # rust version
 rustup toolchain install nightly-2017-01-26
