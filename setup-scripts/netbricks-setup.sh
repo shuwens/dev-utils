@@ -13,7 +13,7 @@ sudo apt-get install -y  msr-tools linux-tools-generic
 
 
 # Necessary tools to make my life easier
-sudo apt-get install -y ranger bash-completion vim build-essential neovim silversearcher-ag tshark fish
+sudo apt-get install -y ranger bash-completion vim build-essential silversearcher-ag tshark fish
 
 # Everything we need to make NetBricks work
 
