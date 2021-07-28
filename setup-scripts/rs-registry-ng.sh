@@ -20,9 +20,6 @@ cat <<EOF > .cargo/config
   [source.crates-io]
   registry = "file://$HOME/dev/others/crates-io-rewound"
 
-  [build]
-  target-dir = "$HOME/data/cargo-target"
-
   [term]
   color = 'auto'
 EOF
