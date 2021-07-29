@@ -49,13 +49,18 @@ wget https://ftp.gnu.org/gnu/binutils/binutils-2.26.1.tar.gz
 sudo apt install bison -y
 
 # 4.4 kernel
-wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
-wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers-4.4.267-0404267_4.4.267-0404267.202104160747_all.deb
-wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-image-unsigned-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
-wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-modules-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
-sudo  dpkg  -i  *.deb
-sudo update-grub
-grep -Ei 'submenu|menuentry ' /boot/grub/grub.cfg | sed -re "s/(.? )'([^']+)'.*/\1 \2/"
+if [ -e "linux-headers-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb" ]; then
+  echo "Looks like kernel 4.4 is already downloaded and installed, passing.."
+else
+  wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
+  wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-headers-4.4.267-0404267_4.4.267-0404267.202104160747_all.deb
+  wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-image-unsigned-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
+  wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.4.267/amd64/linux-modules-4.4.267-0404267-generic_4.4.267-0404267.202104160747_amd64.deb
+  sudo  dpkg  -i  *.deb
+  sudo update-grub
+  grep -Ei 'submenu|menuentry ' /boot/grub/grub.cfg | sed -re "s/(.? )'([^']+)'.*/\1 \2/"
+fi
+
 
 # rust version
 rustup toolchain install nightly-2017-01-26
