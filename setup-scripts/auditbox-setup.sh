@@ -2,7 +2,7 @@
 
 set -e
 
-sudo apt install fsharp bubblewrap zip libssl1.0-dev nodejs -y
+sudo apt install fsharp bubblewrap zip libssl1.0-dev nodejs scons -y
 
 # up-to-date opam
 sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
@@ -39,8 +39,9 @@ git checkout 0.3.8
 # rust sgx
 cd $HOME/dev
 git clone https://github.com/jethrosun/rust-sgx -b safebricks-ver
-cp $HOME/git/dev-utils/setup-scripts/rs-registry.sh  rust-sgx/sgxs
-cp $HOME/git/dev-utils/setup-scripts/rs-registry.sh  rust-sgx/libenclave-tools
+cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/sgxs
+cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/libenclave-tools
+cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/sgxs-tools
 
 
 mkdir -p $HOME/dev/others
