@@ -7,4 +7,3 @@ echo "bash setup finished"
 rm ~/.screenrc
 ln -s $PWD/.screenrc  ~/.screenrc
 echo "screen setup finished"
-

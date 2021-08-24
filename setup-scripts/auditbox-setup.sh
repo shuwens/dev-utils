@@ -14,6 +14,9 @@ sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.
 mkdir -p $HOME/dev
 cd $HOME/dev
 
+rm -rf netbricks
+git clone git@github.com:jethrosun/SGX-NetBricks.git   netbricks
+
 if [ -e "ioctl" ]; then
   rm -rf ioctl
   rm -rf pkg-config-rs
@@ -71,3 +74,7 @@ rustup override set nightly-2017-01-26
 rustup --version
 rustc --version
 cargo --version
+
+
+grep -Ei 'submenu|menuentry ' /boot/grub/grub.cfg | sed -re "s/(.? )'([^']+)'.*/\1 \2/"
+echo "Advanced options for Ubuntu>"
