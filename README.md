@@ -1,10 +1,17 @@
 # dev-utils
 
 
-## Step 1
+## Step 0
 ```
 mkdir -p ~/git && cd ~/git && git clone https://github.com/jethrosun/dev-utils.git
 ```
+
+## then
+
+rust setup
+rs-registry-ng
+auditbox
+
 
 ## vagrant disk size
 ```
