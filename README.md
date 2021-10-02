@@ -8,11 +8,11 @@ mkdir -p ~/git && cd ~/git && git clone https://github.com/jethrosun/dev-utils.g
 
 ## then
 
-rust setup
-rs-registry-ng
-dev-setup
-make ssh key
-auditbox
++ rust setup
++ dev-setup
++ make ssh key
++ auditbox
++ rs-registry-ng
 
 
 ## vagrant disk size
