@@ -10,6 +10,8 @@ mkdir -p ~/git && cd ~/git && git clone https://github.com/jethrosun/dev-utils.g
 
 rust setup
 rs-registry-ng
+dev-setup
+make ssh key
 auditbox
 
 
