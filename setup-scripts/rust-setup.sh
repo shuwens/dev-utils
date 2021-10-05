@@ -3,6 +3,8 @@
 set -e
 
 sudo apt-get update
+sudo apt install silversearcher-ag -y
+
 sudo apt-get install libssl-dev pkg-config cmake zlib1g-dev -y
 
 

@@ -41,7 +41,8 @@ git checkout 0.3.8
 
 # rust sgx
 cd $HOME/dev
-git clone https://github.com/jethrosun/rust-sgx -b safebricks-ver
+# git clone https://github.com/jethrosun/rust-sgx -b safebricks-ver
+git clone git@github.com:jethrosun/rust-sgx.git -b safebricks-ver
 cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/sgxs
 cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/libenclave-tools
 cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/sgxs-tools
