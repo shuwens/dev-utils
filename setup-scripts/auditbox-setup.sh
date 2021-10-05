@@ -28,9 +28,9 @@ fi
 # ioctl 0.3.3
 cd $HOME/dev
 # git clone https://github.com/emberian/ioctl.git
-# cd ioctl
-# git checkout 70b01fe3e530ee4a582d7a1c79c4fc22eb903d97
 git clone git@github.com:jethrosun/ioctl.git
+cd ioctl
+# git checkout 70b01fe3e530ee4a582d7a1c79c4fc22eb903d97
 git checkout safebricks-ver
 
 # pkg-config 0.3.8
