@@ -4,6 +4,9 @@
 ## Step 0
 ```
 mkdir -p ~/git && cd ~/git && git clone https://github.com/jethrosun/dev-utils.git
+# setup ssh key
+mkdir -p ~/dev/pvn && cd ~/dev/pvn && git clone git@github.com:jethrosun/pvn-utils.git utils
+git clone git@github.com:jethrosun/pvn-utils2.git utils2
 ```
 
 ## then
