@@ -1,12 +1,18 @@
 #!/bin/bash
-
 set -e
+
+# Things to do to set up AuditBox/SafeBricks environment:
+#
+# 1. ubuntu package and opam
+# 2. crates that are necessary (ioct/rust-sgx etc)
+# 3. rust compiler version
+# 4. binutils
+# 5. 4.4 version kernel 
 
 sudo apt install fsharp bubblewrap zip libssl1.0-dev nodejs scons -y
 
-# up-to-date opam
-sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
-
+# Get up-to-date opam: this is only for AuditBox (everest)
+# sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
 # opam init
 # opam switch create 4.08.0
 
@@ -19,7 +25,7 @@ git clone git@github.com:jethrosun/SGX-NetBricks.git   netbricks
 
 if [ -e "ioctl" ]; then
   rm -rf ioctl
-  rm -rf pkg-config-rs
+  # rm -rf pkg-config-rs
   rm -rf rust-sgx
 else
   echo "Passing, no Cargo.lock.."
@@ -34,10 +40,10 @@ cd ioctl
 git checkout safebricks-ver
 
 # pkg-config 0.3.8
-cd $HOME/dev
-git clone https://github.com/rust-lang/pkg-config-rs.git
-cd pkg-config-rs
-git checkout 0.3.8
+# cd $HOME/dev
+# git clone https://github.com/rust-lang/pkg-config-rs.git
+# cd pkg-config-rs
+# git checkout 0.3.8
 
 
 # rust sgx
@@ -48,6 +54,19 @@ cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/sgxs
 cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/libenclave-tools
 cp $HOME/git/dev-utils/setup-scripts/rs-registry-ng.sh  rust-sgx/sgxs-tools
 
+# rust version
+rustup toolchain install nightly-2017-01-26
+rustup default nightly-2017-01-26
+rustup override set nightly-2017-01-26
+
+rustup --version
+rustc --version
+cargo --version
+
+
+##-----------------------------------------------
+#  the actual work that this script is for (only need to be done once)
+##-----------------------------------------------
 
 mkdir -p $HOME/dev/others
 cd $HOME/dev/others
@@ -68,15 +87,6 @@ else
 fi
 
 
-# rust version
-rustup toolchain install nightly-2017-01-26
-rustup default nightly-2017-01-26
-rustup override set nightly-2017-01-26
-
-rustup --version
-rustc --version
-cargo --version
-
-
 grep -Ei 'submenu|menuentry ' /boot/grub/grub.cfg | sed -re "s/(.? )'([^']+)'.*/\1 \2/"
-echo "Advanced options for Ubuntu>"
+# echo "Advanced options for Ubuntu>"
+echo "GRUB_DEFAULT=Advanced options for Ubuntu>Ubuntu, with Linux 4.4.267-0404267-generic"
