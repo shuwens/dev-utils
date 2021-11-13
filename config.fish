@@ -7,6 +7,14 @@ abbr -a gc 'git checkout'
 abbr -a vimdiff 'nvim -d'
 abbr -a ct 'cargo t'
 
+abbr -a n "cd ~/dev/netbricks/"
+abbr -a c "command $HOME/dev/netbricks/build.sh"
+abbr -a s "cd ~/dev/safebricks/"
+abbr -a sc "command $HOME/dev/safebricks/build.sh"
+abbr -a u "cd ~/dev/pvn/utils"
+abbr -a uu "cd ~/dev/pvn/utils2"
+abbr -a pg "cd ~/dev/pktgen-dpdk/"
+
 # special stuff
 abbr -a Ef 'nvim ~/.config/fish/config.fish'
 abbr -a Ev 'nvim ~/.config/nvim/init.vim'
@@ -25,10 +33,7 @@ abbr -a safe "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/SGX
 abbr -a abox "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/AuditBox.git -b dev ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
 # abbr -a cnet "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/NetBricks.git -b fix-tlsv ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
 abbr -a cnet "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/NetBricks.git -b expr ~/dev/netbricks; and cd ~/dev/netbricks"
-abbr -a n "cd ~/dev/netbricks/"
-abbr -a u "cd ~/dev/pvn/utils"
-abbr -a pg "cd ~/dev/pktgen-dpdk/"
-abbr -a c "command $HOME/dev/netbricks/build.sh"
+
 abbr -a r "sudo ./run.sh"
 abbr -a p "sudo ./prun.sh"
 abbr -a o "vim -u NONE"
