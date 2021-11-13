@@ -132,7 +132,7 @@ end
 
 function j -d "Autojump alias" -w "autojump"
     cd (env AUTOJUMP_SOURCED=1 autojump $argv)
-e
+end
 
 setenv PKG_CONFIG_PATH /usr/lib/pkgconfig
 
