@@ -130,6 +130,10 @@ if test -d "$HOME/.pyenv"
     status --is-interactive; and source (pyenv init -|psub)
 end
 
+function j -d "Autojump alias" -w "autojump"
+    cd (env AUTOJUMP_SOURCED=1 autojump $argv)
+e
+
 setenv PKG_CONFIG_PATH /usr/lib/pkgconfig
 
 # Fish should not add things to clipboard when killing
