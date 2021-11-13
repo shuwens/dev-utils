@@ -7,6 +7,7 @@ export EDITOR=vim
 
 # Rust
 if [[ -e $HOME/.cargo ]]; then
+	export CARGO_PATH="$HOME/.cargo"
 	source "$HOME/.cargo/env"
 	echo -e '\e[37mbtw: Rust available so enable implicitly\e[0m';
 	export RUST_BACKTRACE=1
