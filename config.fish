@@ -29,8 +29,8 @@ abbr -a gc 'git clone'
 abbr -a cc "checkout -- ."
 abbr -a gs 'git status -s'
 abbr -a ca 'git commit -a -m'
-abbr -a safe "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/SGX-NetBricks.git -b dev ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
-abbr -a abox "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/AuditBox.git -b dev ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
+abbr -a safe "cd; rm -rf ~/dev/safebricks; git clone git@github.com:jethrosun/SGX-NetBricks.git -b dev ~/dev/safebricks; and cd ~/dev/safebricks; and ./build.sh"
+# abbr -a abox "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/AuditBox.git -b dev ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
 # abbr -a cnet "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/NetBricks.git -b fix-tlsv ~/dev/netbricks; and cd ~/dev/netbricks; and ./build.sh"
 abbr -a cnet "cd; rm -rf ~/dev/netbricks; git clone git@github.com:jethrosun/NetBricks.git -b expr ~/dev/netbricks; and cd ~/dev/netbricks"
 
