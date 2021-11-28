@@ -17,7 +17,7 @@ abbr -a pg "cd ~/dev/pktgen-dpdk/"
 
 # special stuff
 abbr -a Ef 'nvim ~/.config/fish/config.fish'
-abbr -a Ev 'nvim ~/.config/nvim/init.vim'
+abbr -a Ev 'nvim ~/.config/nvim/init.lua'
 abbr -a Eb 'nvim ~/dev/netbricks/build.sh'
 abbr -a pull "git pull"
 abbr -a push "git push"
@@ -144,6 +144,13 @@ setenv PKG_CONFIG_PATH /usr/lib/pkgconfig
 # Fish should not add things to clipboard when killing
 # See https://github.com/fish-shell/fish-shell/issues/772
 set FISH_CLIPBOARD_CMD "cat"
+
+# Add pyenv, if available
+if test -d "$HOME/.pyenv"
+    setenv PYENV_ROOT $HOME/.pyenv
+    status is-login; and pyenv init --path | source
+    pyenv init - | source
+end
 
 set normal (set_color normal)
 set magenta (set_color magenta)
